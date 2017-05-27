@@ -13,5 +13,10 @@
         Uzbierano: <span th:text="${piggyBank.current}"></span>
         %: <span th:text="${piggyBank.percentRaised}"></span>
 
+<form action="delete">
+    <input type="hidden" th:value="${piggyBank.id}" name="id"/>
+    <input type="submit" value="Usuń"/>
+</form>
+
 </body>
 </html>

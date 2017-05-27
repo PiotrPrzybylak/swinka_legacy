@@ -8,4 +8,6 @@ public interface PiggyRepository {
     List<PiggyBank> getByCity(String City);
 
     PiggyBank getById(long id);
+
+    void delete(long id);
 }

@@ -47,4 +47,9 @@ public class DatabasePiggyRepository implements PiggyRepository {
         return null;
     }
 
+    @Override
+    public void delete(long id) {
+
+    }
+
 }

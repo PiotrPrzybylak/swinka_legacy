@@ -27,4 +27,9 @@ public class PiggyServiceImpl implements PiggyService {
     public PiggyBank getById(long id) {
         return repository.getById(id);
     }
+
+    @Override
+    public void delete(long id) {
+        repository.delete(id);
+    }
 }

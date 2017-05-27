@@ -50,4 +50,10 @@ public class HardcodedPiggyRepository implements PiggyRepository {
         return null;
     }
 
+    @Override
+    public void delete(long id) {
+        PiggyBank piggyBank = getById(id);
+        piggyBankList.remove(piggyBank);
+    }
+
 }
