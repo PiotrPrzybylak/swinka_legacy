@@ -57,6 +57,13 @@ public class SkarbonkaControler {
 
     }
 
+    @RequestMapping("/piggybank")
+    public String all(@RequestParam(value = "id",required = true) long id, Model model) {
+        PiggyBank piggyBank = piggyService.getById(id);
+        model.addAttribute("piggyBank", piggyBank);
+        return "piggybank";
+
+    }
 
 
     private boolean isStringEmpty(String string) {

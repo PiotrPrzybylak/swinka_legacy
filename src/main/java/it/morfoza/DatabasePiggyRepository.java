@@ -42,4 +42,9 @@ public class DatabasePiggyRepository implements PiggyRepository {
                 mapper, "%" + danceName + "%");
     }
 
+    @Override
+    public PiggyBank getById(long id) {
+        return null;
+    }
+
 }
