@@ -15,10 +15,10 @@ public class HardcodedPiggyRepository implements PiggyRepository {
     private List<PiggyBank> piggyBankList = new ArrayList<>();
 
     public HardcodedPiggyRepository() {
-        piggyBankList.add(new PiggyBank("Wyjazd wakacyjny", "Warszawa", "2016-12-03", new Money(30000)));
-        piggyBankList.add(new PiggyBank("Rehabilitacja", "Wrocław", "12.10", new Money(1200)));
-        piggyBankList.add(new PiggyBank("Samochód", "Łódź", "09.12", new Money(50000)));
-        piggyBankList.add(new PiggyBank("Wózek inwalidzki", "Kraków", "22.10", new Money(15000)));
+        piggyBankList.add(new PiggyBank("Wyjazd wakacyjny", "Warszawa", "2016-12-03", new Money(30000),""));
+        piggyBankList.add(new PiggyBank("Rehabilitacja", "Wrocław", "12.10", new Money(1200),""));
+        piggyBankList.add(new PiggyBank("Samochód", "Łódź", "09.12", new Money(50000),""));
+        piggyBankList.add(new PiggyBank("Wózek inwalidzki", "Kraków", "22.10", new Money(15000),"jakis tam opis" ));
         for (PiggyBank piggyBank : piggyBankList) {
             piggyBank.setId(++nextId);
         }
