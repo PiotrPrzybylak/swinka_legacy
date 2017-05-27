@@ -22,23 +22,23 @@ public class DatabasePiggyRepository implements PiggyRepository {
     private RowMapper<PiggyBank> mapper = new RowMapper<PiggyBank>() {
         @Override
         public PiggyBank mapRow(ResultSet rs, int i) throws SQLException {
-            String eventName = rs.getString("eventName");
+            String name = rs.getString("name");
             String city = rs.getString("city");
             BigDecimal price = rs.getBigDecimal("price");
             String date= rs.getString("date");
-            return new PiggyBank(eventName, city, date, new Money(price) );
+            return new PiggyBank(name, city, date, new Money(price) );
         }
     };
 
     @Override
     public List<PiggyBank> getAllEvents() {
-        return jdbcTemplate.query("SELECT eventname, city, dance, id, price, date FROM events",
+        return jdbcTemplate.query("SELECT name, city, dance, id, price, date FROM events",
                 mapper);
     }
 
     @Override
     public List<PiggyBank> getByCity(String danceName) {
-        return jdbcTemplate.query("SELECT eventname, city, dance, id, price, date FROM events WHERE dance LIKE ?",
+        return jdbcTemplate.query("SELECT name, city, dance, id, price, date FROM events WHERE dance LIKE ?",
                 mapper, "%" + danceName + "%");
     }
 

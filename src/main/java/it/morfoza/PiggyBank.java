@@ -5,31 +5,31 @@ import java.text.SimpleDateFormat;
 
 public class PiggyBank {
 
-    private String eventName;
+    private String name;
     private String city;
     private String date;
-    private Money price;
+    private Money target;
 
 
-    public PiggyBank(String eventName, String city, String  date, Money price) {
-        this.eventName = eventName;
+    public PiggyBank(String name, String city, String  date, Money target) {
+        this.name = name;
         this.city = city;
         this.date = date;
-        this.price = price;
+        this.target = target;
 
     }
 
-    public String getEventName() {return eventName;}
+    public String getEventName() {return name;}
     public String getCity() {return city;}
-    public double getPrice() {return price.getDoubleValue();}
+    public double getPrice() {return target.getDoubleValue();}
     public String getDate() {return date;}
 
     public String toString() {
-        return eventName + city + date + " Price: " + price;
+        return name + city + date + " Price: " + target;
     }
 
     public boolean isFree() {
-        return price.getDoubleValue() == 0;
+        return target.getDoubleValue() == 0;
     }
 
 
