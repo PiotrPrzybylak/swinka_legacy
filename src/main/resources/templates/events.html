@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Evence</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div th:each="piggyBank:${piggyBanks}">
+    <p>
+        <span th:text="${piggyBank.eventName}"></span>
+        <span th:text="${piggyBank.city}"></span>
+        <span th:text="${piggyBank.price}"></span>
+    </p>
+</div>
+</body>
+</html>

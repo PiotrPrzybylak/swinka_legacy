@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Evence</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            background-color: #FFEFD5;
+        }
+        div {
+            background-color: #C0C0C0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+
+<form action="/piggyBanks">
+
+        <p>Jaki taniec Cię interesuje?</p>
+        <input name="dance" />
+        <p>W jakim jesteś mieście?</p>
+        <input name="city" />
+        <p>Data</p>
+        <input name="date"/><br/>
+
+        <label for="free">bezpłatny</label>
+        <input type="radio" name="price" id="free" value="free"/><br/>
+        <label for="notfree">płatny</label>
+        <input type="radio" name="price" id="notfree" value="notfree"/><br/><br/>
+        <input type="submit" value="Search"/>
+    </form>
+
+</body>
+</html>
