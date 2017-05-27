@@ -23,7 +23,7 @@ public class SkarbonkaControler {
         return "home";
     }
 
-    @RequestMapping("/Piggybanks")
+    @RequestMapping("/piggyBanks")
     public String Piggybanks(
                          @RequestParam(value = "city", required = false) String city,
                          @RequestParam(value = "date", required = false) String date,
