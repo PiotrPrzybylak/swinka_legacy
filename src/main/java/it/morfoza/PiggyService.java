@@ -12,4 +12,6 @@ public interface PiggyService {
     long add(PiggyBank piggyBank);
 
     void delete(long id);
+
+    void pay(long id, long amount);
 }
