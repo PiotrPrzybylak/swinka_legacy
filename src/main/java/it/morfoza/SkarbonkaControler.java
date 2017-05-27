@@ -41,7 +41,8 @@ public class SkarbonkaControler {
         }
 
 
-
+        model.addAttribute("name", name);
+        model.addAttribute("target", targer);
         model.addAttribute("city", city);
         model.addAttribute("date", date);
 
@@ -56,6 +57,28 @@ public class SkarbonkaControler {
         return "piggybanks";
 
     }
+
+    @RequestMapping("/AddPage")
+    public String addPage(
+
+            @RequestParam(value = "name",required = false) String name,
+            @RequestParam(value = "targer", required = false) String target,Model model){
+
+
+
+        if (isStringEmpty(name)) {
+            String error = encode("Wpisz nazwę!");
+            return "redirect:/?error= " + error;
+        }
+
+        model.addAttribute("name", name);
+        model.addAttribute("target", target);
+
+                return "AddPage";
+    }
+
+
+
 
 
 
