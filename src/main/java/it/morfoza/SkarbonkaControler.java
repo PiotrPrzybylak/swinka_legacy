@@ -96,6 +96,13 @@ public class SkarbonkaControler {
         return "redirect:all";
     }
 
+    @RequestMapping("/payin")
+    public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true)  long amount) {
+        piggyService.pay(id, amount);
+        return "redirect:/all";
+
+    }
+
 
     private boolean isStringEmpty(String string) {
         return string == null || string.equals("");

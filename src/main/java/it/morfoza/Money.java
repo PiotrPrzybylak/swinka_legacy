@@ -22,4 +22,8 @@ public class Money {
     public String toString() {
         return value + " PLN";
     }
+
+    public Money add(Money money) {
+        return new Money(value.add(money.value));
+    }
 }

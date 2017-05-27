@@ -65,4 +65,9 @@ public class PiggyBank {
     public int getPercentRaised() {
         return (int) (current.getDoubleValue() / target.getDoubleValue() * 100);
     }
+
+    public void payIn(Money amount) {
+        current = current.add(amount);
+
+    }
 }
