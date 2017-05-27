@@ -59,7 +59,9 @@ public class PiggyBank {
     public void setId(Long id) {
         this.id = id;
     }
-
+    public Money getMisingAmount(){
+       return new Money(target.getDoubleValue() - current.getDoubleValue());
+    }
     public int getPercentRaised() {
         return (int) (current.getDoubleValue() / target.getDoubleValue() * 100);
     }
