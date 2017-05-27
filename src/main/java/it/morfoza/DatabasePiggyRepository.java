@@ -47,4 +47,9 @@ public class DatabasePiggyRepository implements PiggyRepository {
         return null;
     }
 
+    @Override
+    public long add(PiggyBank piggyBank) {
+        return 0;
+    }
+
 }

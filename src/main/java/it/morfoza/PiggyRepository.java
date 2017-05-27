@@ -8,4 +8,5 @@ public interface PiggyRepository {
     List<PiggyBank> getByCity(String City);
 
     PiggyBank getById(long id);
+    long add(PiggyBank piggyBank);
 }

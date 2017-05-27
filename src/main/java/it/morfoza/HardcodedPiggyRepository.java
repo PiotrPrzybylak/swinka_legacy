@@ -50,4 +50,11 @@ public class HardcodedPiggyRepository implements PiggyRepository {
         return null;
     }
 
+    @Override
+    public long add(PiggyBank piggyBank) {
+        piggyBank.setId(++nextId);
+        piggyBankList.add(piggyBank);
+        return piggyBank.getId();
+    }
+
 }

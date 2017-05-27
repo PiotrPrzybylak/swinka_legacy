@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.groups.ConvertGroup;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import static jdk.internal.dynalink.support.NameCodec.encode;
@@ -58,30 +61,34 @@ public class SkarbonkaControler {
 
     }
 
+    @RequestMapping("/add_form")
+    public String addForm() {
+        return "AddPage";
+    }
+
+
     @RequestMapping("/AddPage")
     public String addPage(
-
-            @RequestParam(value = "name",required = false) String name,
-            @RequestParam(value = "targer", required = false) String target,Model model){
-
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "target", required = true) long target, Model model) {
 
 
         if (isStringEmpty(name)) {
             String error = encode("Wpisz nazwę!");
             return "redirect:/?error= " + error;
         }
+        PiggyBank pig = new PiggyBank(name, "lodz", LocalDateTime.now().toString(), new Money(target));
 
-        model.addAttribute("name", name);
-        model.addAttribute("target", target);
+        piggyService.add(pig);
 
-                return "AddPage";
+        return "redirect:all";
     }
 
 
 
 
     @RequestMapping("/piggybank")
-    public String all(@RequestParam(value = "id",required = true) long id, Model model) {
+    public String all(@RequestParam(value = "id", required = true) long id, Model model) {
         PiggyBank piggyBank = piggyService.getById(id);
         model.addAttribute("piggyBank", piggyBank);
         return "piggybank";
