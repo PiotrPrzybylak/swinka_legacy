@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class PiggyBank {
 
+    private Long id;
     private String name;
     private String city;
     private String date;
@@ -17,6 +18,7 @@ public class PiggyBank {
         this.city = city;
         this.date = date;
         this.target = target;
+        this.current = new Money(0);
 
     }
 
@@ -44,5 +46,17 @@ public class PiggyBank {
 
     public Money getCurrent() {
         return current;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getPercentRaised() {
+        return (int) (current.getDoubleValue()/target.getDoubleValue()*100);
     }
 }
