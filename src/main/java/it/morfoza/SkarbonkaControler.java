@@ -23,8 +23,8 @@ public class SkarbonkaControler {
         return "home";
     }
 
-    @RequestMapping("/events")
-    public String events(@RequestParam(value = "dance", required = false) String dance,
+    @RequestMapping("/Piggybanks")
+    public String Piggybanks(
                          @RequestParam(value = "city", required = false) String city,
                          @RequestParam(value = "date", required = false) String date,
                          @RequestParam(value = "price", required = false) String price, Model model) {
@@ -34,18 +34,12 @@ public class SkarbonkaControler {
             return "redirect:/?error= " + error;
         }
 
-        if (isStringEmpty(dance)) {
-            String error = encode("Wpisz styl tańca!");
-            return "redirect:/?error= " + error;
-        }
 
 
-        model.addAttribute("events", piggyService.getByDance(dance));
-        model.addAttribute("dance", dance);
         model.addAttribute("city", city);
         model.addAttribute("date", date);
 
-        return "events";
+        return "Piggybanks";
 
     }
 

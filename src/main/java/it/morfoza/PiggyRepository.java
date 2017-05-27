@@ -5,5 +5,5 @@ public interface PiggyRepository {
 
     List<PiggyBank> getAllEvents();
 
-    List<PiggyBank> getByCity(String danceName);
+    List<PiggyBank> getByCity(String City);
 }
