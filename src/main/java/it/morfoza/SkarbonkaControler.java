@@ -25,6 +25,8 @@ public class SkarbonkaControler {
 
     @RequestMapping("/piggybanks")
     public String Piggybanks(
+
+                         @RequestParam(value = "name",required = false) String name,
                          @RequestParam(value = "city", required = false) String city,
                          @RequestParam(value = "date", required = false) String date,
                          @RequestParam(value = "target", required = false) String targer, Model model) {

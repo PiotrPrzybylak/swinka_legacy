@@ -25,7 +25,7 @@ public class HardcodedPiggyBankRepositoryTest {
         // Then
         assertThat(piggyBanks).hasSize(1);
         PiggyBank piggyBank1 = piggyBanks.get(0);
-        assertThat(piggyBank1.getEventName()).isEqualTo("Jazz");
+        assertThat(piggyBank1.getName()).isEqualTo("Jazz");
     }
 
     @Test

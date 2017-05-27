@@ -20,7 +20,7 @@ public class PiggyBank {
 
     }
 
-    public String getEventName() {return name;}
+    public String getName() {return name;}
     public String getCity() {return city;}
     public double getPrice() {return target.getDoubleValue();}
     public String getDate() {return date;}
@@ -33,10 +33,6 @@ public class PiggyBank {
         return target.getDoubleValue() == 0;
     }
 
-
-    public String getName() {
-        return name;
-    }
 
     public Money getTarget() {
         return target;
