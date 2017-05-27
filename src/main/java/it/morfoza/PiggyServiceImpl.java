@@ -22,4 +22,9 @@ public class PiggyServiceImpl implements PiggyService {
     public List<PiggyBank> getAll() {
         return repository.getAllEvents();
     }
+
+    @Override
+    public PiggyBank getById(long id) {
+        return repository.getById(id);
+    }
 }

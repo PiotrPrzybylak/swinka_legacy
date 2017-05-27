@@ -10,13 +10,18 @@ import java.util.List;
 @Profile("demo")
 public class HardcodedPiggyRepository implements PiggyRepository {
 
+    private long nextId;
+
     private List<PiggyBank> piggyBankList = new ArrayList<>();
 
     public HardcodedPiggyRepository() {
-        piggyBankList.add(new PiggyBank("Salsa Dance", "Warszawa", "2016-12-03", new Money(0)));
-        piggyBankList.add(new PiggyBank("Jazz", "Wrocław", "12.10", new Money(120)));
-        piggyBankList.add(new PiggyBank("Dupa Dance", "Łódź", "09.12", new Money(666)));
-        piggyBankList.add(new PiggyBank("Tańczy się tylko raz", "Kraków", "22.10", new Money(0)));
+        piggyBankList.add(new PiggyBank("Wyjazd wakacyjny", "Warszawa", "2016-12-03", new Money(30000)));
+        piggyBankList.add(new PiggyBank("Rehabilitacja", "Wrocław", "12.10", new Money(1200)));
+        piggyBankList.add(new PiggyBank("Samochód", "Łódź", "09.12", new Money(50000)));
+        piggyBankList.add(new PiggyBank("Wózek inwalidzki", "Kraków", "22.10", new Money(15000)));
+        for(PiggyBank piggyBank : piggyBankList) {
+            piggyBank.setId(++nextId);
+        }
     }
 
     @Override
@@ -33,6 +38,16 @@ public class HardcodedPiggyRepository implements PiggyRepository {
             }
         }
         return chosenPiggyBankList;
+    }
+
+    @Override
+    public PiggyBank getById(long id) {
+        for (PiggyBank piggyBank : piggyBankList) {
+            if (piggyBank.getId() == id) {
+                return piggyBank;
+            }
+        }
+        return null;
     }
 
 }
