@@ -97,7 +97,7 @@
   .header__logo {
     width: 12vh;
     height: 12vh;
-    background: url("../assets/logo.jpg");
+    background: url("logo.jpg");
     background-size: contain; }
   .header__menu {
     width: 35vw;
@@ -153,4 +153,3 @@ body {
 
 .header__container {
   margin-left: 3vw; }
-
