@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <title>Formularz</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style>
         body {
             background-color: #FFEFD5;
@@ -11,6 +11,7 @@
             background-color: #C0C0C0;
             text-align: left;
         }
+
     </style>
 </head>
 <body>
@@ -18,19 +19,19 @@
 
 <form action="/piggybanks">
 
-        <p>Zbiórka</p>
+    <p>Zbiórka</p>
 
-        <p>W jakich celach zbórka</p>
-        <input name="city" />
-        <p>Data</p>
-        <input name="date"/><br/>
+    <p>W jakich celach zbórka</p>
+    <input name="city"/>
+    <p>Data</p>
+    <input name="date"/><br/>
 
-        <label for="free">bezpłatny</label>
-        <input type="radio" name="price" id="free" value="free"/><br/>
-        <label for="notfree">płatny</label>
-        <input type="radio" name="price" id="notfree" value="notfree"/><br/><br/>
-        <input type="submit" value="Search"/>
-    </form>
+    <label for="free">bezpłatny</label>
+    <input type="radio" name="price" id="free" value="free"/><br/>
+    <label for="notfree">płatny</label>
+    <input type="radio" name="price" id="notfree" value="notfree"/><br/><br/>
+    <input type="submit" value="Search"/>
+</form>
 
 </body>
 </html>

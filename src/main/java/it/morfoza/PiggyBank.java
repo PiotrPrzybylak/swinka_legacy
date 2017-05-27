@@ -1,8 +1,5 @@
 package it.morfoza;
 
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-
 public class PiggyBank {
 
     private Long id;
@@ -13,7 +10,7 @@ public class PiggyBank {
     private Money current;
 
 
-    public PiggyBank(String name, String city, String  date, Money target) {
+    public PiggyBank(String name, String city, String date, Money target) {
         this.name = name;
         this.city = city;
         this.date = date;
@@ -22,10 +19,21 @@ public class PiggyBank {
 
     }
 
-    public String getName() {return name;}
-    public String getCity() {return city;}
-    public double getPrice() {return target.getDoubleValue();}
-    public String getDate() {return date;}
+    public String getName() {
+        return name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public double getPrice() {
+        return target.getDoubleValue();
+    }
+
+    public String getDate() {
+        return date;
+    }
 
     public String toString() {
         return name + city + date + " Price: " + target;
@@ -53,6 +61,6 @@ public class PiggyBank {
     }
 
     public int getPercentRaised() {
-        return (int) (current.getDoubleValue()/target.getDoubleValue()*100);
+        return (int) (current.getDoubleValue() / target.getDoubleValue() * 100);
     }
 }

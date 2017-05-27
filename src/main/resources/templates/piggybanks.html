@@ -8,13 +8,13 @@
 
 <ul>
 
-<li th:each="piggyBank:${piggyBanks}">
-    Nazwa: <a th:href="'piggybank?id='+${piggyBank.id}"><span th:text="${piggyBank.name}"></span></a>
+    <li th:each="piggyBank:${piggyBanks}">
+        Nazwa: <a th:href="'piggybank?id='+${piggyBank.id}"><span th:text="${piggyBank.name}"></span></a>
         Miasto: <span th:text="${piggyBank.city}"></span>
         Cel: <span th:text="${piggyBank.target}"></span>
         Uzbierano: <span th:text="${piggyBank.current}"></span>
         %: <span th:text="${piggyBank.percentRaised}"></span>
-</li>
+    </li>
 </ul>
 </body>
 </html>

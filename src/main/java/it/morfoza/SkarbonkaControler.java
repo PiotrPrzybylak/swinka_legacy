@@ -6,11 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.groups.ConvertGroup;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 import static jdk.internal.dynalink.support.NameCodec.encode;
@@ -33,10 +29,10 @@ public class SkarbonkaControler {
     @RequestMapping("/piggybanks")
     public String Piggybanks(
 
-                         @RequestParam(value = "name",required = false) String name,
-                         @RequestParam(value = "city", required = false) String city,
-                         @RequestParam(value = "date", required = false) String date,
-                         @RequestParam(value = "target", required = false) String targer, Model model) {
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "city", required = false) String city,
+            @RequestParam(value = "date", required = false) String date,
+            @RequestParam(value = "target", required = false) String targer, Model model) {
 
         if (isStringEmpty(city)) {
             String error = encode("Wpisz nazwę miasta!");
@@ -85,8 +81,6 @@ public class SkarbonkaControler {
     }
 
 
-
-
     @RequestMapping("/piggybank")
     public String all(@RequestParam(value = "id", required = true) long id, Model model) {
         PiggyBank piggyBank = piggyService.getById(id);
@@ -96,20 +90,16 @@ public class SkarbonkaControler {
     }
 
 
-
     @RequestMapping("/delete")
-    public String delete(@RequestParam(value = "id",required = true) long id, Model model) {
+    public String delete(@RequestParam(value = "id", required = true) long id, Model model) {
         piggyService.delete(id);
         return "redirect:all";
     }
 
 
-
-
     private boolean isStringEmpty(String string) {
         return string == null || string.equals("");
     }
-
 
 
 }

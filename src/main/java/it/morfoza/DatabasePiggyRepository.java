@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
 @Component
 @Profile("!demo")
 public class DatabasePiggyRepository implements PiggyRepository {
@@ -25,8 +26,8 @@ public class DatabasePiggyRepository implements PiggyRepository {
             String name = rs.getString("name");
             String city = rs.getString("city");
             BigDecimal price = rs.getBigDecimal("price");
-            String date= rs.getString("date");
-            return new PiggyBank(name, city, date, new Money(price) );
+            String date = rs.getString("date");
+            return new PiggyBank(name, city, date, new Money(price));
         }
     };
 

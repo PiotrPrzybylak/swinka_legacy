@@ -19,7 +19,7 @@ public class HardcodedPiggyRepository implements PiggyRepository {
         piggyBankList.add(new PiggyBank("Rehabilitacja", "Wrocław", "12.10", new Money(1200)));
         piggyBankList.add(new PiggyBank("Samochód", "Łódź", "09.12", new Money(50000)));
         piggyBankList.add(new PiggyBank("Wózek inwalidzki", "Kraków", "22.10", new Money(15000)));
-        for(PiggyBank piggyBank : piggyBankList) {
+        for (PiggyBank piggyBank : piggyBankList) {
             piggyBank.setId(++nextId);
         }
     }
@@ -31,7 +31,7 @@ public class HardcodedPiggyRepository implements PiggyRepository {
 
     @Override
     public List<PiggyBank> getByCity(String city) {
-        List<PiggyBank> chosenPiggyBankList =new ArrayList<>();
+        List<PiggyBank> chosenPiggyBankList = new ArrayList<>();
         for (PiggyBank piggyBank : piggyBankList) {
             if (piggyBank.getCity().equals(city)) {
                 chosenPiggyBankList.add(piggyBank);

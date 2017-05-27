@@ -1,15 +1,12 @@
-
 package it.morfoza.test;
 
-import it.morfoza.PiggyBank;
 import it.morfoza.HardcodedPiggyRepository;
+import it.morfoza.PiggyBank;
 import org.junit.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class HardcodedPiggyBankRepositoryTest {
 
