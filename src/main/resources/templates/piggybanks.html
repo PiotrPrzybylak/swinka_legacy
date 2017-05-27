@@ -1,20 +1,97 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pl">
 <head>
-    <title>Evence</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <base href="/" />
+    <title>Tytuł</title>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
 </head>
 <body>
+  <div class="container">
 
-<ul>
 
-    <li th:each="piggyBank:${piggyBanks}">
-        Nazwa: <a th:href="'piggybank?id='+${piggyBank.id}"><span th:text="${piggyBank.name}"></span></a>
-        Miasto: <span th:text="${piggyBank.city}"></span>
-        Cel: <span th:text="${piggyBank.target}"></span>
-        Uzbierano: <span th:text="${piggyBank.current}"></span>
-        %: <span th:text="${piggyBank.percentRaised}"></span>
-    </li>
-</ul>
+<header class="header">
+  <div class="header__logo">
+
+  </div>
+  <div class="header__menu">
+    <div class="menu__option">Trwające akcje</div>
+    <div class="menu__option">Archiwalne</div>
+    <div class="menu__option">Zobacz efekty</div>
+  </div>
+</header>
+
+
+<main class="actions">
+  <div class="header__container">
+    <h1 class="header__1 actions__title">Aktualne zbiórki</h1>
+    <div class="header__underline"></div>
+  </div>
+  <div class="actions__grid">
+
+
+    <div class="action-card" th:each="piggyBank:${piggyBanks}">
+      <div class="action-card__image" style="background: url('assets/ob.jpg')"></div>
+      <div class="action-card__content-wrapper">
+          <div class="action-card__title" th:text="${piggyBank.name}">Tato, ja ciągle na Ciebie czekam...</div>
+          <div class="action-card__descritpion">To jest część opisu zbiórki, niezwykle ciekawego dnoosubosav jej celów itd itd itd</div>
+          <div class="action-card__progress-bar progress-bar">
+            <div class="progress-bar__progress"></div>
+            <div class="progress-bar__text"><span th:text="${piggyBank.current}"></span> zł (<span th:text="${piggyBank.percentRaised}"></span>%)</div>
+          </div>
+          <div class="action-card__needed">Brakuje nam 244612 zł z <span th:text="${piggyBank.target}"></span></div>
+          <div class="action-card__buttons">
+            <a href="" class="action-card__button action-card__button--green">Więcej</a>
+            <a href="" class="action-card__button action-card__button--green">Wesprzyj</a>
+          </div>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card__image" style="background: url('assets/ob.jpg')"></div>
+      <div class="action-card__content-wrapper">
+          <div class="action-card__title">Tato, ja ciągle na Ciebie czekam...</div>
+          <div class="action-card__descritpion">To jest część opisu zbiórki, niezwykle ciekawego dnoosubosav jej celów itd itd itd</div>
+          <div class="action-card__progress-bar progress-bar">
+            <div class="progress-bar__progress"></div>
+            <div class="progress-bar__text">82171 zł (20%)</div>
+          </div>
+          <div class="action-card__needed">Brakuje nam 244612 zł</div>
+          <div class="action-card__buttons">
+            <a href="" class="action-card__button action-card__button--green">Więcej</a>
+            <a href="" class="action-card__button action-card__button--green">Wesprzyj</a>
+          </div>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-card__image" style="background: url('assets/ob.jpg')"></div>
+      <div class="action-card__content-wrapper">
+          <div class="action-card__title">Tato, ja ciągle na Ciebie czekam...</div>
+          <div class="action-card__descritpion">To jest część opisu zbiórki, niezwykle ciekawego dnoosubosav jej celów itd itd itd</div>
+          <div class="action-card__progress-bar progress-bar">
+            <div class="progress-bar__progress"></div>
+            <div class="progress-bar__text">82171 zł (20%)</div>
+          </div>
+          <div class="action-card__needed">Brakuje nam 244612 zł</div>
+          <div class="action-card__buttons">
+            <a href="" class="action-card__button action-card__button--green">Więcej</a>
+            <a href="" class="action-card__button action-card__button--green">Wesprzyj</a>
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+</main>
+<footer>
+
+</footer>
+</div>
 </body>
 </html>
