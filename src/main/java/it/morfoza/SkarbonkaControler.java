@@ -6,6 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.groups.ConvertGroup;
+
+import java.util.List;
+
 import static jdk.internal.dynalink.support.NameCodec.encode;
 
 @Controller
@@ -41,6 +45,14 @@ public class SkarbonkaControler {
         model.addAttribute("city", city);
         model.addAttribute("date", date);
 
+        return "piggybanks";
+
+    }
+
+    @RequestMapping("/all")
+    public String all(Model model) {
+        List<PiggyBank> piggyBanks = piggyService.getAll();
+        model.addAttribute("piggyBanks", piggyBanks);
         return "piggybanks";
 
     }
