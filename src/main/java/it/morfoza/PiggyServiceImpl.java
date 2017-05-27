@@ -32,4 +32,9 @@ public class PiggyServiceImpl implements PiggyService {
     public long add(PiggyBank piggyBank) {
         return repository.add(piggyBank);
     }
+
+    @Override
+    public void delete(long id) {
+        repository.delete(id);
+    }
 }

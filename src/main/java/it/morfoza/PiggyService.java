@@ -7,4 +7,5 @@ public interface PiggyService {
     List<PiggyBank> getAll();
     PiggyBank getById(long id);
     long add(PiggyBank piggyBank);
+    void delete(long id);
 }

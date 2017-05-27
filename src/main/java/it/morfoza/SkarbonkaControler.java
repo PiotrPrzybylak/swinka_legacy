@@ -96,6 +96,16 @@ public class SkarbonkaControler {
     }
 
 
+
+    @RequestMapping("/delete")
+    public String delete(@RequestParam(value = "id",required = true) long id, Model model) {
+        piggyService.delete(id);
+        return "redirect:all";
+    }
+
+
+
+
     private boolean isStringEmpty(String string) {
         return string == null || string.equals("");
     }
