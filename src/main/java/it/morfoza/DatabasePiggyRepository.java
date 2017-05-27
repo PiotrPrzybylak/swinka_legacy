@@ -28,7 +28,8 @@ public class DatabasePiggyRepository implements PiggyRepository {
             BigDecimal price = rs.getBigDecimal("price");
             String date = rs.getString("date");
             String description = rs.getString("description");
-            return new PiggyBank(name, city, date, new Money(price),description);
+            String long_description=rs.getString("long_description");
+            return new PiggyBank(name, city, date, new Money(price),description,long_description);
         }
     };
 

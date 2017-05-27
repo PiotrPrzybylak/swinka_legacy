@@ -9,15 +9,17 @@ public class PiggyBank {
     private Money target;
     private Money current;
     private String description;
+    private String long_description;
 
 
-    public PiggyBank(String name, String city, String date, Money target, String description) {
+    public PiggyBank(String name, String city, String date, Money target, String description,String long_description) {
         this.name = name;
         this.city = city;
         this.date = date;
         this.target = target;
         this.current = new Money(0);
         this.description=description;
+        this.long_description=long_description;
     }
 
     public String getName() {
@@ -45,7 +47,7 @@ public class PiggyBank {
     }
 
     public String getDescription(){ return description;}
-
+    public String getLong_description(){ return long_description;}
     public Money getTarget() {
         return target;
     }
