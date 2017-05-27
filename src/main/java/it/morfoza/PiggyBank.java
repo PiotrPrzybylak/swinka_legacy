@@ -9,6 +9,7 @@ public class PiggyBank {
     private String city;
     private String date;
     private Money target;
+    private Money current;
 
 
     public PiggyBank(String name, String city, String  date, Money target) {
@@ -33,5 +34,15 @@ public class PiggyBank {
     }
 
 
+    public String getName() {
+        return name;
+    }
 
+    public Money getTarget() {
+        return target;
+    }
+
+    public Money getCurrent() {
+        return current;
+    }
 }
