@@ -18,14 +18,17 @@
 
 <form action="/piggybanks">
 
-        <center><p>Zbiórka</p></center>
+        <p>Zbiórka</p>
 
         <p>W jakich celach zbórka</p>
         <input name="city" />
         <p>Data</p>
+        <input name="date"/><br/>
 
-
-
+        <label for="free">bezpłatny</label>
+        <input type="radio" name="price" id="free" value="free"/><br/>
+        <label for="notfree">płatny</label>
+        <input type="radio" name="price" id="notfree" value="notfree"/><br/><br/>
         <input type="submit" value="Search"/>
     </form>
 
