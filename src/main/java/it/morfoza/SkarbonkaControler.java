@@ -66,7 +66,7 @@ public class SkarbonkaControler {
     @RequestMapping("/AddPage")
     public String addPage(
             @RequestParam(value = "name", required = false) String name,
-            @RequestParam(value = "target", required = true) long target, Model model) {
+            @RequestParam(value = "target", required = true) long target) {
 
 
         if (isStringEmpty(name)) {
@@ -77,7 +77,7 @@ public class SkarbonkaControler {
 
         piggyService.add(pig);
 
-        return "redirect:all";
+        return "redirect:/all";
     }
 
 
