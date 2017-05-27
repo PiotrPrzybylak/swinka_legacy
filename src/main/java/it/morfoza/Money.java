@@ -14,8 +14,12 @@ public class Money {
         this.value = value;
     }
 
-
     public double getDoubleValue() {
         return value.doubleValue();
+    }
+
+    @Override
+    public String toString() {
+        return value + " PLN";
     }
 }

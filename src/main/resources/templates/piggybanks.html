@@ -6,12 +6,15 @@
 </head>
 <body>
 
-<div th:each="piggyBank:${piggyBanks}">
-    <p>
-        <span th:text="${piggyBank.eventName}"></span>
-        <span th:text="${piggyBank.city}"></span>
-        <span th:text="${piggyBank.price}"></span>
-    </p>
-</div>
+<ul>
+
+<li th:each="piggyBank:${piggyBanks}">
+        Nazwa: <span th:text="${piggyBank.name}"></span>
+        Miasto: <span th:text="${piggyBank.city}"></span>
+        Cel: <span th:text="${piggyBank.target}"></span>
+        Uzbierano: <span th:text="${piggyBank.current}"></span>
+
+</li>
+</ul>
 </body>
 </html>
