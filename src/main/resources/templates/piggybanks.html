@@ -41,7 +41,7 @@
                       <div class="progress-bar__progress"></div>
                       <div class="progress-bar__text"><span th:text="${piggyBank.current}"> zł</span> (<span th:text="${piggyBank.percentRaised}"></span>%)</div>
                     </div>
-                    <div class="action-card__needed">Brakuje nam <span th:text="${piggyBank.getMisingAmount}"></span> zł z <span th:text="${piggyBank.target}"></span></div>
+                    <div class="action-card__needed">Brakuje nam <span th:text="${piggyBank.misingAmount}"></span> zł z <span th:text="${piggyBank.target}"></span></div>
                     <div class="action-card__buttons">
                       <a href="" class="action-card__button action-card__button--green">Więcej</a>
                       <a href="" class="action-card__button action-card__button--green">Wesprzyj</a>
