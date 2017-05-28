@@ -27,7 +27,7 @@ public class SkarbonkaControler {
 
     @RequestMapping("/")
     public String home() {
-        return "home";
+        return "redirect:/all";
     }
 
     @RequestMapping("/piggybanks")
