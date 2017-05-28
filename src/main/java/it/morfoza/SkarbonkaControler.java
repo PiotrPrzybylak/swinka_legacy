@@ -62,9 +62,16 @@ public class SkarbonkaControler {
 
     }
 
-    @RequestMapping("/admin")
+    @RequestMapping("/add_piggybank_form")
     public String addForm() {
         return "add_piggybank_form";
+    }
+
+    @RequestMapping("/admin")
+    public String admin(Model model) {
+        List<PiggyBank> piggyBanks = piggyService.getAll();
+        model.addAttribute("piggyBanks", piggyBanks);
+        return "admin";
     }
 
 
@@ -105,7 +112,7 @@ public class SkarbonkaControler {
     @RequestMapping("/delete")
     public String delete(@RequestParam(value = "id", required = true) long id, Model model) {
         piggyService.delete(id);
-        return "redirect:all";
+        return "redirect:admin";
     }
 
     @RequestMapping("/payin")

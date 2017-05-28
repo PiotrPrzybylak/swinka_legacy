@@ -61,7 +61,7 @@ public class DatabasePiggyRepository implements PiggyRepository {
 
     @Override
     public void delete(long id) {
-
+        jdbcTemplate.update ("DELETE FROM piggybanks WHERE id = ?", id);
     }
 
     @Override

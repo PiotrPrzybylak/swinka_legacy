@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Tytuł</title>
+
+    <style>
+	table { border-collapse: collapse; margin-top: 15px;}
+	td, th { border: 1px solid #000000; vertical-align: baseline; padding: 10px; }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<a href="/add_piggybank_form">Dodaj nową skarbonkę</a>
+
+
+<table>
+
+    <tr>
+        <th>Nazwa</th>
+        <th>Cel</th>
+        <th>Zebrano</th>
+        <th>%</th>
+        <th></th>
+    </tr>
+    <tr th:each="piggyBank:${piggyBanks}">
+        <td th:text="${piggyBank.name}"></td>
+        <td th:text="${piggyBank.target}"></td>
+        <td th:text="${piggyBank.current}"></td>
+        <td th:text="${piggyBank.percentRaised}"></td>
+        <td>
+            <form action="delete">
+                <input type="hidden" th:value="${piggyBank.id}" name="id"/>
+                <input type="submit" value="Usuń"/>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+
+</html>
