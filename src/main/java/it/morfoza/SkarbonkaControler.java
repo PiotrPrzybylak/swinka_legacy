@@ -77,6 +77,9 @@ public class SkarbonkaControler {
                                                                  ) {
 
 
+        if(isStringEmpty(url_image)){
+            url_image= "resources/ob.jpg";
+        }
         if (isStringEmpty(name)) {
             String error = encode("Wpisz nazwę!");
             return "redirect:/?error= " + error;
