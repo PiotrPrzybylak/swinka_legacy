@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Enumeration;
 import java.util.List;
 
 import static jdk.internal.dynalink.support.NameCodec.encode;
@@ -27,7 +28,7 @@ public class SkarbonkaControler {
 
     @RequestMapping("/")
     public String home() {
-        return "home";
+        return "redirect:/all";
     }
 
     @RequestMapping("/piggybanks")
@@ -109,7 +110,7 @@ public class SkarbonkaControler {
 
     @RequestMapping("/payin")
     public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true)  long amount) {
-        piggyService.pay(id, amount);
+        piggyService.pay(id, new Money(amount));
         return "redirect:/all";
 
     }
@@ -119,15 +120,20 @@ public class SkarbonkaControler {
 
         System.out.println(req.getParameterMap());
 
+        Enumeration<String> parameterNames = req.getParameterNames();
+
+        while (parameterNames.hasMoreElements()) {
+            String name = parameterNames.nextElement();
+            System.out.println(name + "=" + req.getParameter(name));
+        }
+
         String controlParam = req.getParameter("control");
         String amountParam = req.getParameter("operation_amount");
         String status = req.getParameter("operation_status");
 
         if ("completed".equals(status)) {
             long piggyBankId = Long.parseLong(controlParam);
-            PiggyBank piggyBank = piggyService.getById(piggyBankId);
-            Money amount = new Money(new BigDecimal(amountParam));
-            piggyBank.payIn(amount);
+            piggyService.pay(piggyBankId, new Money(new BigDecimal(amountParam)) );
         }
 
         try {

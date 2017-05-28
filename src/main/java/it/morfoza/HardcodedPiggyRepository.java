@@ -53,4 +53,9 @@ public class HardcodedPiggyRepository implements PiggyRepository {
         piggyBankList.remove(piggyBank);
     }
 
+    @Override
+    public void update(PiggyBank piggyBank) {
+
+    }
+
 }

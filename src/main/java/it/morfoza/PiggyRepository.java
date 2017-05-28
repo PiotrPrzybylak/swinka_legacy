@@ -11,4 +11,6 @@ public interface PiggyRepository {
     long add(PiggyBank piggyBank);
 
     void delete(long id);
+
+    void update(PiggyBank piggyBank);
 }
