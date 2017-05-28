@@ -5,3 +5,4 @@ INSERT INTO "public"."events" ("eventname", "city", "dance", "price", "date") VA
 INSERT INTO "public"."events" ("eventname", "city", "dance", "price", "date") VALUES (E'Tango Balango', E'Wrocław', E'tango', 100, E'2016-09-03');
 INSERT INTO "public"."events" ("eventname", "city", "dance", "price", "date") VALUES (E'Jamaica!!!', E'Bydgoszcz', E'ragga', 200, E'2016-09-04');
 INSERT INTO "public"."events" ("eventname", "city", "dance", "price", "date") VALUES (E'Wielkie Love', E'Warszawa', E'towarzyski', 0, E'2016-09-05');
+INSERT INTO
