@@ -63,11 +63,11 @@ public class SkarbonkaControler {
 
     @RequestMapping("/add_form")
     public String addForm() {
-        return "AddPage";
+        return "add_piggybank_form";
     }
 
 
-    @RequestMapping("/AddPage")
+    @RequestMapping("/add_piggybank")
     public String addPage(
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "target", required = true) long target,
