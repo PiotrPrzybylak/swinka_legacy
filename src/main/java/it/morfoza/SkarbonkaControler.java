@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -112,6 +113,17 @@ public class SkarbonkaControler {
     public void confirmPayment(HttpServletRequest req, HttpServletResponse resp) {
 
         System.out.println(req.getParameterMap());
+
+        String controlParam = req.getParameter("controlParam");
+        String amountParam = req.getParameter("operation_amount");
+        String status = req.getParameter("operation_status");
+
+        if ("completed".equals(status)) {
+            long piggyBankId = Long.parseLong(controlParam);
+            PiggyBank piggyBank = piggyService.getById(piggyBankId);
+            Money amount = new Money(new BigDecimal(amountParam));
+            piggyBank.payIn(amount);
+        }
 
         try {
             resp.getWriter().print("OK");

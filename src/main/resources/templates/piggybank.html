@@ -12,7 +12,7 @@ Miasto: <span th:text="${piggyBank.city}"></span>
 Cel: <span th:text="${piggyBank.target}"></span>
 Uzbierano: <span th:text="${piggyBank.current}"></span>
 %: <span th:text="${piggyBank.percentRaised}"></span>
-<a href="https://ssl.dotpay.pl/test_payment/?id=727904&amp;kwota=123&amp;opis=aaaa">Wpłać</a>
+<a href="" th:href="'https://ssl.dotpay.pl/test_payment/?id=727904&amp;kwota=123&amp;opis=aaaa&amp;control='+%{piggyBank.id}">Wpłać</a>
 <form action="delete">
     <input type="hidden" th:value="${piggyBank.id}" name="id"/>
     <input type="submit" value="Usuń"/>
