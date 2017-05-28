@@ -38,7 +38,7 @@ public class DatabasePiggyRepository implements PiggyRepository {
 
     @Override
     public List<PiggyBank> getAll() {
-        return jdbcTemplate.query("SELECT id, name,  id, price, date FROM piggybanks",
+        return jdbcTemplate.query("SELECT id, name, target, current, short_description, long_description FROM piggybanks",
                 mapper);
     }
 
