@@ -44,7 +44,7 @@ public class DatabasePiggyRepository implements PiggyRepository {
 
     @Override
     public PiggyBank getById(long id) {
-        return null;
+        return jdbcTemplate.queryForObject("SELECT id, name, target, current, short_description, long_description FROM piggybanks WHERE id = ?", mapper, id);
     }
 
     @Override
