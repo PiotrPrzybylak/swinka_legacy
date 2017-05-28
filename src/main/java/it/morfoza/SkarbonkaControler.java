@@ -81,7 +81,7 @@ public class SkarbonkaControler {
             String error = encode("Wpisz nazwę!");
             return "redirect:/?error= " + error;
         }
-        PiggyBank pig = new PiggyBank(name, "lodz", LocalDateTime.now().toString(), new Money(target),description,long_description,url_image);
+        PiggyBank pig = new PiggyBank(name,  LocalDateTime.now().toString(), new Money(target), new Money(0),description,long_description,url_image);
 
         piggyService.add(pig);
 

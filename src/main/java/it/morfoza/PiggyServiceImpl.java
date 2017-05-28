@@ -14,13 +14,8 @@ public class PiggyServiceImpl implements PiggyService {
     }
 
     @Override
-    public List<PiggyBank> getByCity(String City) {
-        return repository.getByCity(City);
-    }
-
-    @Override
     public List<PiggyBank> getAll() {
-        return repository.getAllEvents();
+        return repository.getAll();
     }
 
     @Override
