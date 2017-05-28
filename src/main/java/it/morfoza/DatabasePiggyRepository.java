@@ -49,7 +49,14 @@ public class DatabasePiggyRepository implements PiggyRepository {
 
     @Override
     public long add(PiggyBank piggyBank) {
-        return 0;
+        Long id = jdbcTemplate.queryForObject ("INSERT INTO piggybanks(name, target, current, short_description, long_description) VALUES(?,?,?,?,?) RETURNING id", Long.class,
+                piggyBank.getName(),
+                piggyBank.getTarget(),
+                piggyBank.getCurrent(),
+                piggyBank.getDescription(),
+                piggyBank.getLong_description()
+                );
+        return id;
     }
 
     @Override
