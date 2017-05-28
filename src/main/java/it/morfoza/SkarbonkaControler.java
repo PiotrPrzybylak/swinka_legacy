@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -102,6 +105,19 @@ public class SkarbonkaControler {
     public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true)  long amount) {
         piggyService.pay(id, amount);
         return "redirect:/all";
+
+    }
+
+    @RequestMapping("/confirm_payment")
+    public void confirmPayment(HttpServletRequest req, HttpServletResponse resp) {
+
+        System.out.println(req.getParameterMap());
+
+        try {
+            resp.getWriter().print("OK");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
