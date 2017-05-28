@@ -12,7 +12,7 @@ public interface PiggyService {
 
     void delete(long id);
 
-    void pay(long id, Money amount, String email);
+    void pay(long piggyBankId, Money amount, String email);
 
     List<Payment> getPaymentsForPiggyBank(long piggyBankId);
 }
