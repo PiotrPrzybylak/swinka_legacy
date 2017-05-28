@@ -1,27 +1,27 @@
 <html>
 <head>
     <title>Formularz</title>
+    <link rel="stylesheet" href="resources/normalize.css" />
+    <link rel="stylesheet" href="resources/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
 </head>
 <body>
-<center><h1>Formularz</h1></center>
+<h1 class="header__1 actions__title">Formularz</h1>
 <form action="/add_piggybank">
 
-    <p><b>Podaj nazwe:</b><br/>
-        <input name="name"></input>
-    </p>
-    <p><b>Glowny cel</b>
-        <input name="target"></input>
+   <p><h2>Podaj nazwe</h2></p>
+        <input class="input_name" name="name"></input>
 
-    </p>
-
-    <p><h2>Opisanie krótkie</h2>
+    <p><h2>Kwota</h2></p>
+        <input class="input_cel" name="target"></input>
+    <p><h2>Opisanie krótkie</h2></p>
     <input name="description"></input>
-    </p>
-    <h4>Opisanie dlugie</h4>
+
+    <p><h2>Opisanie dlugie</h2></p>
     <input name="long_description"></input>
-    <h5>url dla obrazka</h5>
+    <h2>url dla obrazka</h2>
     <input type="url" name="url_image"></input>
-    <input type="submit" value="Wyslij"></input>
+    <input class="action-card__button action-card__button--green" type="submit" value="Wyslij"></input>
 </form>
 </body>
 </html>

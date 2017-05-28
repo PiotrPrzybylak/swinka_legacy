@@ -153,3 +153,20 @@ body {
 
 .header__container {
   margin-left: 3vw; }
+
+.input_name{
+
+ text-align: right;
+}
+.input_cel{
+text-align: right;
+}
+.name_left{
+text-align: left;
+}
+.h2{
+text-align: left;
+font-style: normal;
+font-weight: normal;
+
+}
