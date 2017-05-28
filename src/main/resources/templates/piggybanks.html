@@ -33,11 +33,11 @@
             <div class="actions__grid">
 
               <div class="action-card" th:each="piggyBank:${piggyBanks}">
-                <div class="action-card__image" th:style="'background: url(\'' + ${piggyBank.url_image}+'\')'"></div>
+                <div class="action-card__image" style="background: url('resources/ob.jpg')"></div>
                 <div class="action-card__content-wrapper">
                     <div class="action-card__title" th:text="${piggyBank.name}">Tato, ja ciągle na Ciebie czekam... - zbiórka na rehabilitację</div>
                     <div class="action-card__descritpion">To jest krótki opis mający w skrócie opowiedzieć, na co zostaną wykorzystane pieniądze. Lorem ipsu</div>
-                    <div class="action-card__progress-bar progress-bar" th-attr="data-current=#{piggyBank.current}" th:attr="data-target=#{piggyBank.target}">
+                    <div class="action-card__progress-bar progress-bar" th:attr="data-current=${piggyBank.current}, data-target=${piggyBank.target}">
                       <div class="progress-bar__progress"></div>
                       <div class="progress-bar__text"><span th:text="${piggyBank.current}"> zł</span> (<span th:text="${piggyBank.percentRaised}"></span>%)</div>
                     </div>
