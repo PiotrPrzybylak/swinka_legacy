@@ -18,6 +18,10 @@ public class Money {
         return value.doubleValue();
     }
 
+    public BigDecimal getBigDecimalValue() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return value + " PLN";

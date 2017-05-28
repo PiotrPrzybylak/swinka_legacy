@@ -50,8 +50,8 @@ public class DatabasePiggyRepository implements PiggyRepository {
     public long add(PiggyBank piggyBank) {
         Long id = jdbcTemplate.queryForObject ("INSERT INTO piggybanks(name, target, current, short_description, long_description, picture_url) VALUES(?,?,?,?,?,?) RETURNING id", Long.class,
                 piggyBank.getName(),
-                piggyBank.getTarget(),
-                piggyBank.getCurrent(),
+                piggyBank.getTarget().getBigDecimalValue(),
+                piggyBank.getCurrent().getBigDecimalValue(),
                 piggyBank.getDescription(),
                 piggyBank.getLong_description(),
                 piggyBank.getUrl_image()
