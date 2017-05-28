@@ -119,8 +119,15 @@ public class SkarbonkaControler {
     public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true)  long amount) {
         piggyService.pay(id, new Money(amount), "");
         return "redirect:/all";
-
     }
+
+    @RequestMapping("/payments")
+    public String payments(@RequestParam(value = "id", required = true) long id, Model model) {
+        model.addAttribute("payments", piggyService.getPaymentsForPiggyBank(id));
+        model.addAttribute("piggyBank", piggyService.getById(id));
+        return "payments";
+    }
+
 
     @RequestMapping("/confirm_payment")
     public void confirmPayment(HttpServletRequest req, HttpServletResponse resp) {

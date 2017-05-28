@@ -11,4 +11,6 @@ public interface PaymentRepository {
     long add(Payment payment);
 
     void delete(long id);
+
+    List<Payment> getByPiggyBank(long piggyBankId);
 }
