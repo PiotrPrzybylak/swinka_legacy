@@ -110,7 +110,7 @@ public class SkarbonkaControler {
 
     @RequestMapping("/payin")
     public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true)  long amount) {
-        piggyService.pay(id, amount);
+        piggyService.pay(id, new Money(amount));
         return "redirect:/all";
 
     }
@@ -123,7 +123,8 @@ public class SkarbonkaControler {
         Enumeration<String> parameterNames = req.getParameterNames();
 
         while (parameterNames.hasMoreElements()) {
-            System.out.println(req.getParameter(parameterNames.nextElement()));
+            String name = parameterNames.nextElement();
+            System.out.println(name + "=" + req.getParameter(name));
         }
 
         String controlParam = req.getParameter("control");
@@ -132,9 +133,7 @@ public class SkarbonkaControler {
 
         if ("completed".equals(status)) {
             long piggyBankId = Long.parseLong(controlParam);
-            PiggyBank piggyBank = piggyService.getById(piggyBankId);
-            Money amount = new Money(new BigDecimal(amountParam));
-            piggyBank.payIn(amount);
+            piggyService.pay(piggyBankId, new Money(new BigDecimal(amountParam)) );
         }
 
         try {

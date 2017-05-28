@@ -36,14 +36,13 @@ public class PiggyServiceImpl implements PiggyService {
     }
 
     @Override
-    public void pay(long id, long amount) {
+    public void pay(long id, Money amount) {
         PiggyBank piggyBank = repository.getById(id);
-        Money money = new Money(amount);
-        piggyBank.payIn(money);
+        piggyBank.payIn(amount);
         repository.update(piggyBank);
 
         Payment payment = new Payment();
-        payment.setAmount(money);
+        payment.setAmount(amount);
         paymentRepository.add(payment);
 
     }
