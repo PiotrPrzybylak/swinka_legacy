@@ -62,7 +62,7 @@ public class SkarbonkaControler {
 
     }
 
-    @RequestMapping("/add_form")
+    @RequestMapping("/admin")
     public String addForm() {
         return "add_piggybank_form";
     }
