@@ -49,10 +49,11 @@ public class DatabasePaymentRepository implements PaymentRepository {
 
     @Override
     public long add(Payment payment) {
-        Long id = jdbcTemplate.queryForObject ("INSERT INTO payments(name, amount, piggybank_id) VALUES(?,?,?) RETURNING id", Long.class,
+        Long id = jdbcTemplate.queryForObject ("INSERT INTO payments(name, amount, piggybank_id, email) VALUES(?,?,?,?) RETURNING id", Long.class,
                 payment.getName(),
                 payment.getAmount().getBigDecimalValue(),
-                payment.getPiggyBankId()
+                payment.getPiggyBankId(),
+                payment.getEmail()
                 );
         return id;
     }

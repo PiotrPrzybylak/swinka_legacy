@@ -110,7 +110,7 @@ public class SkarbonkaControler {
 
     @RequestMapping("/payin")
     public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true)  long amount) {
-        piggyService.pay(id, new Money(amount));
+        piggyService.pay(id, new Money(amount), "");
         return "redirect:/all";
 
     }
@@ -133,7 +133,7 @@ public class SkarbonkaControler {
 
         if ("completed".equals(status)) {
             long piggyBankId = Long.parseLong(controlParam);
-            piggyService.pay(piggyBankId, new Money(new BigDecimal(amountParam)) );
+            piggyService.pay(piggyBankId, new Money(new BigDecimal(amountParam)), req.getParameter("email"));
         }
 
         try {
