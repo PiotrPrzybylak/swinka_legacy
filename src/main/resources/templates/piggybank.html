@@ -14,7 +14,7 @@ Uzbierano: <span th:text="${piggyBank.current}"></span>
 <a href="" th:href="'https://ssl.dotpay.pl/test_payment/?id=727904&amp;kwota=123&amp;opis=aaaa&amp;control='+${piggyBank.id}+'&amp;URL=https://swinka.herokuapp.com/all&amp;type=3'">Wpłać</a>
 <form action="delete">
     <input type="hidden" th:value="${piggyBank.id}" name="id"/>
-    <input type="submit" value="Usuń"/>
+
 </form>
 
 </body>
