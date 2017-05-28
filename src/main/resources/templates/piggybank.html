@@ -47,7 +47,7 @@
                     <div class="piggybank__title">Ile już zebraliśmy?</div>
                     <div class="progress-bar aside-stats__progress-bar" data-current="383000" data-target="1520000">
                         <div class="progress-bar__progress"></div>
-                        <div class="progress-bar__text"><span th:text="${piggyBank.current}"> zł (<span th:text="${piggyBank.percentRaised}"></span>%)</div>
+                          <div class="progress-bar__text"><span th:text="${piggyBank.current}"> zł (<span th:text="${piggyBank.percentRaised}"></span>%)</div>
                     </div>
                     <div class="aside-stats__needed" th:text="'Brakuje nam '+${piggyBank.misingAmount}+' z '><span th:text=" ${piggyBank.target} "></span></div>
                 <div class="aside-stats__support dropdown-btn "><span>Wspomóż</span></div>
