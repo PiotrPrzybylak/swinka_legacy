@@ -114,7 +114,7 @@ public class SkarbonkaControler {
 
         System.out.println(req.getParameterMap());
 
-        String controlParam = req.getParameter("controlParam");
+        String controlParam = req.getParameter("control");
         String amountParam = req.getParameter("operation_amount");
         String status = req.getParameter("operation_status");
 
