@@ -32,11 +32,11 @@
 
         <div class="piggybank-wrapper">
             <main class="piggybank" data-subpage="piggybank">
-                <div class="piggybank__photo" style="background: url('assets/ob.jpg')"></div>
+                <div class="piggybank__photo" style="background: url('/resources/ob.jpg')"></div>
 
                 <div class="piggybank__article-wrapper">
                     <div class="piggybank__title" th:text="${piggyBank.name}"></div>
-                    <div class="piggybank__article" th:text="${piggyBank.longDescription}">
+                    <div class="piggybank__article" th:text="${piggyBank.long_description}">
 
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                       <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="1000 " /><label>1000 zł</label></li>
                       <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="3000 " /><label>3000 zł</label></li>
                     </ul>
-                    <input type="submit " class="dropdown__submit aside-stats__support " value="Wpłać ">
+                    <input type="submit " class="dropdown__submit aside-stats__support " value="Wpłać " />
                   </form>
                 </div>
               </div>
@@ -110,7 +110,7 @@
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js " integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=" anonymous "></script>
-    <script src="scripts/piggybanks.js "></script>
+    <script src="/resources/piggybanks.js "></script>
 </body>
 
 </html>
