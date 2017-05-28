@@ -29,7 +29,8 @@ public class DatabasePiggyRepository implements PiggyRepository {
             String date = rs.getString("date");
             String description = rs.getString("description");
             String long_description=rs.getString("long_description");
-            return new PiggyBank(name, city, date, new Money(price),description,long_description);
+            String url_image=rs.getString("url_image");
+            return new PiggyBank(name, city, date, new Money(price),description,long_description,url_image);
         }
     };
 

@@ -72,14 +72,16 @@ public class SkarbonkaControler {
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "target", required = true) long target,
             @RequestParam(value = "description", required = true) String description,
-            @RequestParam(value = "long_description",required = true)String long_description) {
+            @RequestParam(value = "long_description",required = true)String long_description,
+            @RequestParam(value = "url_image",required = false)String url_image
+                                                                 ) {
 
 
         if (isStringEmpty(name)) {
             String error = encode("Wpisz nazwę!");
             return "redirect:/?error= " + error;
         }
-        PiggyBank pig = new PiggyBank(name, "lodz", LocalDateTime.now().toString(), new Money(target),description,long_description);
+        PiggyBank pig = new PiggyBank(name, "lodz", LocalDateTime.now().toString(), new Money(target),description,long_description,url_image);
 
         piggyService.add(pig);
 

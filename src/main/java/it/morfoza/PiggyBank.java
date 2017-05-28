@@ -10,9 +10,10 @@ public class PiggyBank {
     private Money current;
     private String description;
     private String long_description;
+    private String url_image;
 
 
-    public PiggyBank(String name, String city, String date, Money target, String description,String long_description) {
+    public PiggyBank(String name, String city, String date, Money target, String description,String long_description,String url_image) {
         this.name = name;
         this.city = city;
         this.date = date;
@@ -20,6 +21,7 @@ public class PiggyBank {
         this.current = new Money(0);
         this.description=description;
         this.long_description=long_description;
+        this.url_image=url_image;
     }
 
     public String getName() {
@@ -48,6 +50,7 @@ public class PiggyBank {
 
     public String getDescription(){ return description;}
     public String getLong_description(){ return long_description;}
+    public String getUrl_image(){return  url_image;}
     public Money getTarget() {
         return target;
     }
