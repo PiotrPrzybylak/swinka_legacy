@@ -30,7 +30,7 @@ public class DatabasePiggyRepository implements PiggyRepository {
             //String date = rs.getString("date");
             String description = rs.getString("short_description");
             String long_description=rs.getString("long_description");
-            String url_image=rs.getString("url_image");
+            String url_image=rs.getString("picture_url");
             PiggyBank piggyBank = new PiggyBank(name, "", new Money(target), new Money(current), description, long_description, url_image);
             piggyBank.setId(id);
             return piggyBank;        }
@@ -38,23 +38,23 @@ public class DatabasePiggyRepository implements PiggyRepository {
 
     @Override
     public List<PiggyBank> getAll() {
-        return jdbcTemplate.query("SELECT id, name, target, current, short_description, long_description FROM piggybanks",
-                mapper);
+        return jdbcTemplate.query("SELECT id, name, target, current, short_description, long_description, picture_url FROM piggybanks", mapper);
     }
 
     @Override
     public PiggyBank getById(long id) {
-        return jdbcTemplate.queryForObject("SELECT id, name, target, current, short_description, long_description FROM piggybanks WHERE id = ?", mapper, id);
+        return jdbcTemplate.queryForObject("SELECT id, name, target, current, short_description, long_description, picture_url FROM piggybanksWHERE id = ?", mapper, id);
     }
 
     @Override
     public long add(PiggyBank piggyBank) {
-        Long id = jdbcTemplate.queryForObject ("INSERT INTO piggybanks(name, target, current, short_description, long_description) VALUES(?,?,?,?,?) RETURNING id", Long.class,
+        Long id = jdbcTemplate.queryForObject ("INSERT INTO piggybanks(name, target, current, short_description, long_description, picture_url) VALUES(?,?,?,?,?,?) RETURNING id", Long.class,
                 piggyBank.getName(),
                 piggyBank.getTarget(),
                 piggyBank.getCurrent(),
                 piggyBank.getDescription(),
-                piggyBank.getLong_description()
+                piggyBank.getLong_description(),
+                piggyBank.getUrl_image()
                 );
         return id;
     }
