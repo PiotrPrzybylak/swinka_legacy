@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Enumeration;
 import java.util.List;
 
 import static jdk.internal.dynalink.support.NameCodec.encode;
@@ -118,6 +119,12 @@ public class SkarbonkaControler {
     public void confirmPayment(HttpServletRequest req, HttpServletResponse resp) {
 
         System.out.println(req.getParameterMap());
+
+        Enumeration<String> parameterNames = req.getParameterNames();
+
+        while (parameterNames.hasMoreElements()) {
+            System.out.println(req.getParameter(parameterNames.nextElement()));
+        }
 
         String controlParam = req.getParameter("control");
         String amountParam = req.getParameter("operation_amount");
