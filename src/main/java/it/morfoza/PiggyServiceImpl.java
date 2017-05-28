@@ -8,9 +8,11 @@ import java.util.List;
 public class PiggyServiceImpl implements PiggyService {
 
     private PiggyRepository repository;
+    private PaymentRepository paymentRepository;
 
-    public PiggyServiceImpl(PiggyRepository repository) {
+    public PiggyServiceImpl(PiggyRepository repository, PaymentRepository paymentRepository) {
         this.repository = repository;
+        this.paymentRepository = paymentRepository;
     }
 
     @Override
@@ -36,6 +38,13 @@ public class PiggyServiceImpl implements PiggyService {
     @Override
     public void pay(long id, long amount) {
         PiggyBank piggyBank = repository.getById(id);
-        piggyBank.payIn(new Money(amount));
+        Money money = new Money(amount);
+        piggyBank.payIn(money);
+        repository.update(piggyBank);
+
+        Payment payment = new Payment();
+        payment.setAmount(money);
+        paymentRepository.add(payment);
+
     }
 }
