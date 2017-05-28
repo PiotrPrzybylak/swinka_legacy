@@ -4,7 +4,6 @@ public class PiggyBank {
 
     private Long id;
     private String name;
-    private String city;
     private String date;
     private Money target;
     private Money current;
@@ -12,12 +11,11 @@ public class PiggyBank {
     private String long_description;
 
 
-    public PiggyBank(String name, String city, String date, Money target, String description,String long_description) {
+    public PiggyBank(String name, String date, Money target, Money current, String description, String long_description) {
         this.name = name;
-        this.city = city;
         this.date = date;
         this.target = target;
-        this.current = new Money(0);
+        this.current = current;
         this.description=description;
         this.long_description=long_description;
     }
@@ -26,9 +24,6 @@ public class PiggyBank {
         return name;
     }
 
-    public String getCity() {
-        return city;
-    }
 
     public double getPrice() {
         return target.getDoubleValue();
@@ -39,7 +34,7 @@ public class PiggyBank {
     }
 
     public String toString() {
-        return name + city + date + " Price: " + target;
+        return name  + date + " target: " + target;
     }
 
     public boolean isFree() {
@@ -72,6 +67,5 @@ public class PiggyBank {
 
     public void payIn(Money amount) {
         current = current.add(amount);
-
     }
 }

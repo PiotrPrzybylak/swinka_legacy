@@ -4,9 +4,7 @@ import java.util.List;
 
 public interface PiggyRepository {
 
-    List<PiggyBank> getAllEvents();
-
-    List<PiggyBank> getByCity(String City);
+    List<PiggyBank> getAll();
 
     PiggyBank getById(long id);
 

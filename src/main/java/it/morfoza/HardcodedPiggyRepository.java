@@ -15,30 +15,20 @@ public class HardcodedPiggyRepository implements PiggyRepository {
     private List<PiggyBank> piggyBankList = new ArrayList<>();
 
     public HardcodedPiggyRepository() {
-        piggyBankList.add(new PiggyBank("Wyjazd wakacyjny", "Warszawa", "2016-12-03", new Money(30000),"",""));
-        piggyBankList.add(new PiggyBank("Rehabilitacja", "Wrocław", "12.10", new Money(1200),"",""));
-        piggyBankList.add(new PiggyBank("Samochód", "Łódź", "09.12", new Money(50000),"",""));
-        piggyBankList.add(new PiggyBank("Wózek inwalidzki", "Kraków", "22.10", new Money(15000),"jakis tam opis","" ));
+        piggyBankList.add(new PiggyBank("Wyjazd wakacyjny",  "2016-12-03", new Money(30000), new Money(0),"",""));
+        piggyBankList.add(new PiggyBank("Rehabilitacja",  "12.10", new Money(1200),new Money(0),"",""));
+        piggyBankList.add(new PiggyBank("Samochód", "09.12", new Money(50000),new Money(0),"",""));
+        piggyBankList.add(new PiggyBank("Wózek inwalidzki", "22.10", new Money(15000),new Money(0),"jakis tam opis","" ));
         for (PiggyBank piggyBank : piggyBankList) {
             piggyBank.setId(++nextId);
         }
     }
 
     @Override
-    public List<PiggyBank> getAllEvents() {
+    public List<PiggyBank> getAll() {
         return piggyBankList;
     }
 
-    @Override
-    public List<PiggyBank> getByCity(String city) {
-        List<PiggyBank> chosenPiggyBankList = new ArrayList<>();
-        for (PiggyBank piggyBank : piggyBankList) {
-            if (piggyBank.getCity().equals(city)) {
-                chosenPiggyBankList.add(piggyBank);
-            }
-        }
-        return chosenPiggyBankList;
-    }
 
     @Override
     public PiggyBank getById(long id) {

@@ -23,26 +23,23 @@ public class DatabasePiggyRepository implements PiggyRepository {
     private RowMapper<PiggyBank> mapper = new RowMapper<PiggyBank>() {
         @Override
         public PiggyBank mapRow(ResultSet rs, int i) throws SQLException {
+            Long id = rs.getLong("id");
             String name = rs.getString("name");
-            String city = rs.getString("city");
-            BigDecimal price = rs.getBigDecimal("price");
-            String date = rs.getString("date");
-            String description = rs.getString("description");
+            BigDecimal target = rs.getBigDecimal("target");
+            BigDecimal current = rs.getBigDecimal("current");
+            //String date = rs.getString("date");
+            String description = rs.getString("short_description");
             String long_description=rs.getString("long_description");
-            return new PiggyBank(name, city, date, new Money(price),description,long_description);
+            PiggyBank piggyBank = new PiggyBank(name, "", new Money(target), new Money(current), description, long_description);
+            piggyBank.setId(id);
+            return piggyBank;
         }
     };
 
     @Override
-    public List<PiggyBank> getAllEvents() {
-        return jdbcTemplate.query("SELECT name, city, dance, id, price, date FROM events",
+    public List<PiggyBank> getAll() {
+        return jdbcTemplate.query("SELECT id, name,  id, price, date FROM events",
                 mapper);
-    }
-
-    @Override
-    public List<PiggyBank> getByCity(String danceName) {
-        return jdbcTemplate.query("SELECT name, city, dance, id, price, date FROM events WHERE dance LIKE ?",
-                mapper, "%" + danceName + "%");
     }
 
     @Override
