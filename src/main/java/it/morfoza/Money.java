@@ -24,7 +24,7 @@ public class Money {
 
     @Override
     public String toString() {
-        return value + " PLN";
+        return value.toString();
     }
 
     public Money add(Money money) {
