@@ -66,7 +66,7 @@ public class DatabasePiggyRepository implements PiggyRepository {
 
     @Override
     public void update(PiggyBank piggyBank) {
-        jdbcTemplate.update ("UPDATE piggybanks SET name = ?, target = ?, current =? , short_description = ?, long_description = ?, picture_url= ? ) WHERE id = ?",
+        jdbcTemplate.update ("UPDATE piggybanks SET name = ?, target = ?, current =? , short_description = ?, long_description = ?, picture_url= ?  WHERE id = ?",
                 piggyBank.getName(),
                 piggyBank.getTarget().getBigDecimalValue(),
                 piggyBank.getCurrent().getBigDecimalValue(),
