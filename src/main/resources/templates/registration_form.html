@@ -1,0 +1,30 @@
+<head>
+    <link rel="stylesheet" href="/resources/style.css" />
+</head>
+<form action="#" id='send' method='POST'>
+    <fieldset>
+        <label>Имя</label>
+        <input type='text' name='name' placeholder='Имя' required="true"></input><span></span>
+        <label>Surname</label>
+        <input type='text' name='surname' placeholder='Surname' required="true"></input><span></span>
+    </fieldset>
+    <fieldset>
+        <label>Email</label>
+        <input type='email' name='email' placeholder='Email' required="true"></input><span></span>
+
+        <label>Password</label>
+        <input type='password' name='pass' placeholder='Password' required="true"></input><span></span>
+
+        <label>Repeat</label>
+        <input type='password' name='repeat' placeholder='Repeat password' required="true"></input><span></span>
+
+    </fieldset>
+    <fieldset>
+        <p>Введите число с картинки</p>
+        <img src="https://c22blog.files.wordpress.com/2010/10/input-black.gif"></img>
+        <input type='text' name='capcha' placeholder='число' required="true"></input><span></span>
+    </fieldset>
+    </form>
+<div class="sum">
+    <input type="submit" value="Registration" form='send'></input>
+</div>

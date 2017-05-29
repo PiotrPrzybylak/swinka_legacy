@@ -54,6 +54,13 @@ public class SkarbonkaControler {
 
     }
 
+    @RequestMapping("/registration_form")
+
+    public String registration_form(){
+        return "registration_form";
+    }
+
+
     @RequestMapping("/all")
     public String all(Model model) {
         List<PiggyBank> piggyBanks = piggyService.getAll();
@@ -67,13 +74,14 @@ public class SkarbonkaControler {
         return "add_piggybank_form";
     }
 
+
+
     @RequestMapping("/admin")
     public String admin(Model model) {
         List<PiggyBank> piggyBanks = piggyService.getAll();
         model.addAttribute("piggyBanks", piggyBanks);
         return "admin";
     }
-
 
     @RequestMapping("/add_piggybank")
     public String addPage(
