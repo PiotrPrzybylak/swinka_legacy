@@ -62,9 +62,16 @@ public class SkarbonkaControler {
 
     }
 
-    @RequestMapping("/admin")
+    @RequestMapping("/add_piggybank_form")
     public String addForm() {
         return "add_piggybank_form";
+    }
+
+    @RequestMapping("/admin")
+    public String admin(Model model) {
+        List<PiggyBank> piggyBanks = piggyService.getAll();
+        model.addAttribute("piggyBanks", piggyBanks);
+        return "admin";
     }
 
 
@@ -105,15 +112,22 @@ public class SkarbonkaControler {
     @RequestMapping("/delete")
     public String delete(@RequestParam(value = "id", required = true) long id, Model model) {
         piggyService.delete(id);
-        return "redirect:all";
+        return "redirect:admin";
     }
 
     @RequestMapping("/payin")
     public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true)  long amount) {
         piggyService.pay(id, new Money(amount), "");
         return "redirect:/all";
-
     }
+
+    @RequestMapping("/payments")
+    public String payments(@RequestParam(value = "id", required = true) long id, Model model) {
+        model.addAttribute("payments", piggyService.getPaymentsForPiggyBank(id));
+        model.addAttribute("piggyBank", piggyService.getById(id));
+        return "payments";
+    }
+
 
     @RequestMapping("/confirm_payment")
     public void confirmPayment(HttpServletRequest req, HttpServletResponse resp) {

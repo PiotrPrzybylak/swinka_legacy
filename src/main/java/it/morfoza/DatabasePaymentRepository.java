@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -23,17 +24,14 @@ public class DatabasePaymentRepository implements PaymentRepository {
     private RowMapper<Payment> mapper = new RowMapper<Payment>() {
         @Override
         public Payment mapRow(ResultSet rs, int i) throws SQLException {
-            Long id = rs.getLong("id");
-            Long piggybankId = rs.getLong("piggybank_id");
-            String name = rs.getString("name");
-            BigDecimal amount = rs.getBigDecimal("amount");
-            //String date = rs.getString("date");
 
             Payment payment = new Payment();
-            payment.setId(id);
-            payment.setAmount(new Money(amount));
-            payment.setPiggyBankId(piggybankId);
-            payment.setName(name);
+            payment.setId(rs.getLong("id"));
+            payment.setAmount(new Money(rs.getBigDecimal("amount")));
+            payment.setPiggyBankId(rs.getLong("piggybank_id"));
+            payment.setName(rs.getString("name"));
+            payment.setEmail(rs.getString("email"));
+            payment.setTimestamp(rs.getDate("timestamp"));
             return payment;        }
     };
 
@@ -61,6 +59,11 @@ public class DatabasePaymentRepository implements PaymentRepository {
     @Override
     public void delete(long id) {
 
+    }
+
+    @Override
+    public List<Payment> getByPiggyBank(long piggyBankId) {
+        return jdbcTemplate.query("SELECT id, name, amount, email, piggybank_id, timestamp FROM payments WHERE piggybank_id = ?", mapper, piggyBankId);
     }
 
 }

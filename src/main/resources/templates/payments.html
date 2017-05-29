@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Tytuł</title>
+
+    <style>
+	table { border-collapse: collapse; margin-top: 15px;}
+	td, th { border: 1px solid #000000; vertical-align: baseline; padding: 10px; }
+
+    </style>
+
+</head>
+
+<body>
+
+<h3>Płatności dla skarbonki:   <a href="" th:href="'/piggybank?id=' + ${piggyBank.id}"><span th:text="${piggyBank.name}"></span></a></h3>
+
+<table>
+    <tr>
+        <th>Kwota</th>
+        <th>Email</th>
+        <th>Data</th>
+    </tr>
+    <tr th:each="payment:${payments}">
+        <td th:text="${payment.amount}"></td>
+        <td th:text="${payment.email}"></td>
+        <td th:text="${payment.timestamp}"></td>
+    </tr>
+</table>
+
+</body>
+
+</html>
