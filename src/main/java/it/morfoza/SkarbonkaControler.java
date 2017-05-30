@@ -69,6 +69,9 @@ public class SkarbonkaControler {
 
     }
 
+    @RequestMapping("/log_in_form")
+    public String log_in_form(){return "log_in_form";}
+
     @RequestMapping("/add_piggybank_form")
     public String addForm() {
         return "add_piggybank_form";
