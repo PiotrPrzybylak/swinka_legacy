@@ -22,12 +22,14 @@ function openDropdown(){
 
 function fillStatusBars() {
     var bars = document.querySelectorAll('.progress-bar');
+    console.log(bars)
     for (var i = 0; i < bars.length; i++) {
         var filling = bars[i].querySelector('.progress-bar__progress');
         var current = parseInt(bars[i].getAttribute('data-current'));
         var target = parseInt(bars[i].getAttribute('data-target'));
         var progress = (current / target) * 100;
         filling.style.width = progress + "%";
+        console.log(current,target)
     }
 }
 
@@ -51,8 +53,7 @@ function countShares() {
 }
 
 function facebookShare(winWidth, winHeight) {
-    // var url = window.location.href;
-    var url = "http://5eff2351.ngrok.io/piggybank.php"
+    var url = window.location.href;
     var winTop = (screen.height / 2) - (winHeight / 2);
     var winLeft = (screen.width / 2) - (winWidth / 2);
     window.open('https://www.facebook.com/sharer.php?s=100&p[url]=' + url, "Udostępnij", "width=500,height=500");
