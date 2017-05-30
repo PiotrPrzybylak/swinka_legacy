@@ -1,0 +1,123 @@
+@import "../scss/variables";
+
+.action-card {
+    width: 28.9vw;
+    // min-height: 60vh;
+    font-family: 'Roboto Condensed', sans-serif;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 1.5vw;
+
+    &__content-wrapper {
+        padding: 1vw;
+    }
+
+    &__title {
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-bottom: 1.5vh;
+        color: map-get($colors, green);
+        height: 8vh;
+    }
+
+    &__descritpion {
+        color: map-get($colors, grey);
+        height: 11vh;
+        overflow: hidden;
+    }
+
+    &__image {
+        height: 36vh;
+        width: 100%;
+        background-size: cover !important;
+    }
+
+    &__color-bg{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 45.5vh;
+    }
+
+    &__image-text{
+      color: #FFF;
+      font-size: 2.2em;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    &__progress-bar {
+        width: 100%;
+        height: 32px;
+        margin-top: 2vh;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+        margin: 3vh auto 0 auto;
+    }
+
+    &__button {
+        text-decoration: none;
+        width: 37%;
+        height: 5vh;
+
+        &--green{
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          color: #FFF;
+          text-decoration: none;
+          outline: none;
+          border-width: 2px 0;
+          border-style: solid none;
+          border-color: map-get($colors, green);
+          background: map-get($colors, green);
+          transition: .35s;
+
+          &:hover{
+            background: map-get($colors, darker-green);
+            border-color: map-get($colors, darker-green);
+          }
+        }
+
+        &--grey{
+          border: 1px solid map-get($colors, grey);
+          color: map-get($colors, grey);
+        }
+    }
+
+    &__needed{
+      text-align: center;
+      margin-top: 1vh;
+      font-size: .8em;
+    }
+}
+
+.progress-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: map-get($colors, very-lightgrey);
+
+    &__progress {
+        height: 100%;
+        width: 0;
+        background-color: map-get($colors, green);
+        background-image: linear-gradient( -45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent );
+        will-change: width;
+        transition: width 1s ease;
+    }
+
+    &__text {
+        position: absolute;
+        // top: 25%;
+        // left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}

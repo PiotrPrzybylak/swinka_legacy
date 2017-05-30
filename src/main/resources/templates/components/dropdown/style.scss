@@ -1,0 +1,35 @@
+.dropdown {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #FFF;
+    // padding: 3vh 1vw;
+    font-family: 'Roboto Condensed', sans-serif;
+    justify-content: space-around;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+    height: 0;
+    will-change: height;
+    transition: height .5s ease;
+
+    &--active {
+        height: 33vh;
+    }
+
+    &__amounts {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__amount {
+        display: block;
+        width: 50%;
+        font-size: 1.3em;
+    }
+
+    &__submit {
+        display: block;
+        margin: 3vh auto;
+        border: none;
+    }
+}

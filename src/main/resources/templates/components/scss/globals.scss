@@ -1,0 +1,26 @@
+@import "components/scss/variables";
+
+body{
+  overflow-x: hidden;
+}
+
+.header {
+    &__1 {
+        font-family: 'Roboto Condensed', sans-serif;
+        margin-bottom: 0;
+    }
+
+    &__underline {
+        width: 5%;
+        height: 4px;
+        background-color: map-get($colors, green);
+    }
+
+    &__container{
+      margin-left: 3vw;
+    }
+}
+
+.template{
+  // display: none;
+}

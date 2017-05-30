@@ -1,0 +1,11 @@
+.actions{
+  margin-top: 5vh;
+
+  &__grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 1.5vw;
+    margin-top: 5vh;
+  }
+}

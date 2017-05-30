@@ -1,0 +1,134 @@
+@import "components/scss/variables";
+
+.piggybank-wrapper {
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 94vw;
+    padding: 5vh 3vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.piggybank {
+    width: 60vw;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+    &__photo {
+        height: 45vh;
+        width: 100%;
+        background-size: cover !important;
+    }
+
+    &__article-wrapper {
+        padding: 3vh 4vw;
+    }
+
+    &__title {
+        font-size: 2em;
+        font-weight: 700;
+        color: map-get($colors, green);
+        line-height: 1.3em;
+    }
+
+    &__article {
+        margin-top: 3vh;
+        color: map-get($colors, grey);
+        line-height: 1.4em;
+    }
+}
+
+.piggybank-aside {
+    width: 30vw;
+    height: 30vh;
+
+    &__element {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        width: calc(100% - 4vw);
+        padding: 2vw;
+        margin-bottom: 4vh;
+    }
+
+    &__stats {}
+}
+
+.aside-stats {
+    &__progress-bar {
+        height: 5vh;
+        margin-top: 2vh;
+    }
+
+    &__needed {
+        margin-top: 1vh;
+    }
+
+    &__support {
+        width: 80%;
+        height: 9vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75em;
+        color: #FFF;
+        margin: 5vh auto 0;
+        display: flex;
+        background-color: map-get($colors, green);
+        cursor: pointer;
+    }
+}
+
+.aside-share {
+    width: 100%;
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        height: 6vh;
+        margin: 0 auto;
+        background-color: map-get($colors, facebook-blue);
+        color: #FFF;
+        font-size: 1.2em;
+        cursor: pointer;
+
+        i {
+            margin-right: 10px;
+        }
+    }
+
+    &__counter {
+        text-align: center;
+        margin-bottom: 2vh;
+        margin-top: 1.5vh;
+        font-size: 1.3em;
+    }
+
+    &__embed {
+        display: block;
+        color: map-get($colors, green);
+        margin-top: 2vh;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+.aside-donors {}
+
+.donors-table {
+    margin: 2vh auto 0;
+    width: 85%;
+    border-collapse: collapse;
+
+    &__row:not(:last-child) {
+      border-bottom: solid 1px map-get($colors, borders);
+    }
+
+    &__name {
+        width: 85%;
+        padding: 1vh 0;
+    }
+
+    &__amount {
+        width: 15%;
+        padding: 1vh 0;
+    }
+}

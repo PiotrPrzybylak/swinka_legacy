@@ -1,4 +1,5 @@
 .idea
 *.iml
 target
-
+src/main/resources/templates/node_modules
+logs/*.log
