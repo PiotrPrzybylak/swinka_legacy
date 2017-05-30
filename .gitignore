@@ -3,3 +3,9 @@
 target
 src/main/resources/templates/node_modules
 logs/*.log
+resources/*.js
+resources/*.css
+resources/*.jpg
+resources/*.jpeg
+resources/*.png
+resources/*.svg
