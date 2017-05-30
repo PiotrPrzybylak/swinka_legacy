@@ -22,14 +22,12 @@ function openDropdown(){
 
 function fillStatusBars() {
     var bars = document.querySelectorAll('.progress-bar');
-    console.log(bars)
     for (var i = 0; i < bars.length; i++) {
         var filling = bars[i].querySelector('.progress-bar__progress');
         var current = parseInt(bars[i].getAttribute('data-current'));
         var target = parseInt(bars[i].getAttribute('data-target'));
         var progress = (current / target) * 100;
         filling.style.width = progress + "%";
-        console.log(current,target)
     }
 }
 
