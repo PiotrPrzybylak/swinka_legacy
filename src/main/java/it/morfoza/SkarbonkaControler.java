@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.util.Enumeration;
 import java.util.List;
-
-import static jdk.internal.dynalink.support.NameCodec.encode;
 
 @Controller
 public class SkarbonkaControler {
@@ -31,31 +31,7 @@ public class SkarbonkaControler {
         return "redirect:/all";
     }
 
-    @RequestMapping("/piggybanks")
-    public String Piggybanks(
-
-            @RequestParam(value = "name", required = false) String name,
-            @RequestParam(value = "city", required = false) String city,
-            @RequestParam(value = "date", required = false) String date,
-            @RequestParam(value = "target", required = false) String targer, Model model) {
-
-        if (isStringEmpty(city)) {
-            String error = encode("Wpisz nazwę miasta!");
-            return "redirect:/?error= " + error;
-        }
-
-
-        model.addAttribute("name", name);
-        model.addAttribute("target", targer);
-        model.addAttribute("city", city);
-        model.addAttribute("date", date);
-
-        return "piggybanks";
-
-    }
-
     @RequestMapping("/registration_form")
-
     public String registration_form(){
         return "registration_form";
     }
@@ -66,7 +42,6 @@ public class SkarbonkaControler {
         List<PiggyBank> piggyBanks = piggyService.getAll();
         model.addAttribute("piggyBanks", piggyBanks);
         return "piggybanks";
-
     }
 
     @RequestMapping("/log_in_form")
@@ -77,7 +52,12 @@ public class SkarbonkaControler {
         return "add_piggybank_form";
     }
 
-
+    @RequestMapping("/edit_piggybank_form")
+    public String editForm(@RequestParam(value = "id", required = true) long id, Model model) {
+        PiggyBank piggyBank = piggyService.getById(id);
+        model.addAttribute("piggyBank", piggyBank);
+        return "edit_piggybank_form";
+    }
 
     @RequestMapping("/admin")
     public String admin(Model model) {
@@ -96,11 +76,9 @@ public class SkarbonkaControler {
                                                                  ) {
 
 
-        if(isStringEmpty(url_image)){
-            url_image= "resources/ob.jpg";
-        }
         if (isStringEmpty(name)) {
-            String error = encode("Wpisz nazwę!");
+            String url = "Wpisz nazwę!";
+            String error = encodeUrl(url);
             return "redirect:/?error= " + error;
         }
         PiggyBank pig = new PiggyBank(name,  LocalDateTime.now().toString(), new Money(target), new Money(0),description,long_description,url_image);
@@ -111,8 +89,34 @@ public class SkarbonkaControler {
     }
 
 
+    @RequestMapping("/edit_piggybank")
+    public String edit(
+            @RequestParam(value = "id", required = true) long id,
+            @RequestParam(value = "name", required = false) String name,
+            @RequestParam(value = "target", required = true) long target,
+            @RequestParam(value = "description", required = true) String description,
+            @RequestParam(value = "long_description",required = true)String long_description,
+            @RequestParam(value = "url_image",required = false)String url_image
+    ) {
+
+        if (isStringEmpty(name)) {
+            String error = encodeUrl("Wpisz nazwę!");
+            return "redirect:/?error= " + error;
+        }
+        PiggyBank piggyBank = piggyService.getById(id);
+        piggyBank.setName(name);
+        piggyBank.setDescription(description);
+        piggyBank.setLong_description(long_description);
+        piggyBank.setTarget(new Money(target));
+        piggyBank.setUrl_image(url_image);
+
+        piggyService.update(piggyBank);
+
+        return "redirect:/admin";
+    }
+
     @RequestMapping("/piggybank")
-    public String all(@RequestParam(value = "id", required = true) long id, Model model) {
+    public String piggyBank(@RequestParam(value = "id", required = true) long id, Model model) {
         PiggyBank piggyBank = piggyService.getById(id);
         model.addAttribute("piggyBank", piggyBank);
         return "piggybank";
@@ -169,10 +173,18 @@ public class SkarbonkaControler {
 
     }
 
-
     private boolean isStringEmpty(String string) {
         return string == null || string.equals("");
     }
 
 
+    private static String encodeUrl(String url)  {
+        try {
+            return URLEncoder.encode(url, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
+

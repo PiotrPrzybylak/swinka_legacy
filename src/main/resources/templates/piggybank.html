@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta name="keywords" content="" />
-    <meta property="og:image" th:attr="content=${piggyBank.url_image}" />
+    <meta property="og:image" th:attr="content=${piggyBank.url_image ?: '/resources/ob.jpg'}" />
     <meta property="og:description" th:attr="content=${piggyBank.description}" />
     <link rel="stylesheet" href="/resources/normalize.css" />
     <link rel="stylesheet" href="/resources/style.css" />

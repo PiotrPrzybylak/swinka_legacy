@@ -28,6 +28,7 @@
         <th>%</th>
         <th>Wpłaty</th>
         <th></th>
+        <th></th>
     </tr>
     <tr th:each="piggyBank:${piggyBanks}">
         <td th:text="${piggyBank.name}"></td>
@@ -35,6 +36,7 @@
         <td th:text="${piggyBank.current}"></td>
         <td th:text="${piggyBank.percentRaised}"></td>
         <td><a href="" th:href="'/payments?id=' + ${piggyBank.id}" >Zobacz wpłaty</a></td>
+        <td><a href="" th:href="'/edit_piggybank_form?id=' + ${piggyBank.id}" >Edytuj</a></td>
         <td>
             <form action="delete">
                 <input type="hidden" th:value="${piggyBank.id}" name="id"/>

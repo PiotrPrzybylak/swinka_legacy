@@ -27,10 +27,6 @@ public class PiggyBank {
     }
 
 
-    public double getPrice() {
-        return target.getDoubleValue();
-    }
-
     public String getDate() {
         return date;
     }
@@ -39,13 +35,9 @@ public class PiggyBank {
         return name  + date + " target: " + target;
     }
 
-    public boolean isFree() {
-        return target.getDoubleValue() == 0;
-    }
-
     public String getDescription(){ return description;}
     public String getLong_description(){ return long_description;}
-    public String getUrl_image(){return  url_image;}
+    public String getUrl_image(){return  url_image; }
     public Money getTarget() {
         return target;
     }
@@ -71,4 +63,26 @@ public class PiggyBank {
     public void payIn(Money amount) {
         current = current.add(amount);
     }
+
+    public void setTarget(Money target) {
+        this.target = target;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLong_description(String long_description) {
+        this.long_description = long_description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setUrl_image(String url_image) {
+        this.url_image = url_image;
+    }
 }
+
+

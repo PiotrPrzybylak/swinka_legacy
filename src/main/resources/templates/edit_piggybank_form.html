@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Formularz</title>
+    <link rel="stylesheet" href="resources/normalize.css" />
+    <link rel="stylesheet" href="resources/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet" />
+</head>
+<body>
+<h1 class="header__1 actions__title">Edycja skarbonki</h1>
+<form action="/edit_piggybank">
+
+    <input type="hidden" name="id" th:value="${piggyBank.id}" />
+   <p><h2>Podaj nazwe</h2></p>
+        <input class="input_name" name="name" th:value="${piggyBank.name}"></input>
+
+    <p><h2>Kwota</h2></p>
+        <input class="input_cel" name="target" th:value="${piggyBank.target}"></input>
+    <p><h2>Opisanie krótkie</h2></p>
+    <input name="description" th:value="${piggyBank.description}"></input>
+
+    <p><h2>Opisanie dlugie</h2></p>
+    <input name="long_description" th:value="${piggyBank.long_description}"></input>
+    <h2>url dla obrazka</h2>
+    <input type="url" name="url_image" th:value="${piggyBank.url_image}"></input>
+    <input class="action-card__button action-card__button--green" type="submit" value="Wyslij"></input>
+</form>
+</body>
+</html>

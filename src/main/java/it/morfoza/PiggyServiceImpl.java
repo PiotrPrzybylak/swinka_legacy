@@ -53,4 +53,9 @@ public class PiggyServiceImpl implements PiggyService {
     public List<Payment> getPaymentsForPiggyBank(long piggyBankId) {
         return paymentRepository.getByPiggyBank(piggyBankId);
     }
+
+    @Override
+    public void update(PiggyBank piggyBank) {
+        repository.update(piggyBank);
+    }
 }

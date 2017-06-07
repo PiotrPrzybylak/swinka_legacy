@@ -15,4 +15,6 @@ public interface PiggyService {
     void pay(long piggyBankId, Money amount, String email);
 
     List<Payment> getPaymentsForPiggyBank(long piggyBankId);
+
+    void update(PiggyBank piggyBank);
 }
