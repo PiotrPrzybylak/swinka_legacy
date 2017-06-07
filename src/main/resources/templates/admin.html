@@ -6,7 +6,7 @@
     <title>Tytuł</title>
 
     <style>
-	table { border-collapse: collapse; margin-top: 15px;}
+	table { border-collapse: collapse; margin-top: 15px; margin-bottom: 15px;}
 	td, th { border: 1px solid #000000; vertical-align: baseline; padding: 10px; }
 
     </style>
@@ -45,6 +45,15 @@
         </td>
     </tr>
 </table>
+
+<form  action="/logout" method="post">
+    <input type="submit" value="Log out" />
+    <!-- <input type="hidden"
+               th:name="${_csrf.parameterName}"
+               th:value="${_csrf.token}"/> -->
+</form>
+
+
 
 </body>
 
