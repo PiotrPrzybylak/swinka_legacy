@@ -13,6 +13,13 @@
     will-change: height;
     transition: height 0.5s ease;
 
+    &--full-width{
+      box-shadow: none;
+      width: 100%;
+      margin-top: 5vh;
+      z-index: 50;
+    }
+
     &--active {
         height: 42vh;
     }

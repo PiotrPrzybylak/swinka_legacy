@@ -51,43 +51,48 @@
                     </div>
                     <div class="aside-stats__needed" th:text="'Brakuje nam '+${piggyBank.misingAmount}+' z '"><span th:text=" ${piggyBank.target} "></span></div>
                     <div class="aside-stats__support dropdown-btn "><span>Wspomóż</span></div>
-                    <div class="dropdown ">
-                        <form id="amountForm" target="">
+                    <div class="dropdown">
+                        <form action="https://ssl.dotpay.pl" method="post">
                             <ul class="dropdown__amounts ">
-                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="10" />
+                                <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="10" />
                                     <div class="dropdown__radio-outside">
                                         <div class="dropdown__radio-inside"></div>
                                     </div><label>10 zł</label></li>
-                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="20" />
+                                <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="20" />
                                     <div class="dropdown__radio-outside">
                                         <div class="dropdown__radio-inside"></div>
                                     </div><label>20 zł</label></li>
-                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="50" />
+                                <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="50" />
                                     <div class="dropdown__radio-outside">
                                         <div class="dropdown__radio-inside"></div>
                                     </div><label>50 zł</label></li>
-                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="100" />
+                                <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="100" />
                                     <div class="dropdown__radio-outside">
                                         <div class="dropdown__radio-inside"></div>
                                     </div><label>100 zł</label></li>
-                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="250" />
+                                <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="250" />
                                     <div class="dropdown__radio-outside">
                                         <div class="dropdown__radio-inside"></div>
                                     </div><label>250 zł</label></li>
-                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="500" />
+                                <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="500" />
                                     <div class="dropdown__radio-outside">
                                         <div class="dropdown__radio-inside"></div>
                                     </div><label>500 zł</label></li>
-                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="1000" />
+                                <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="1000" />
                                     <div class="dropdown__radio-outside">
                                         <div class="dropdown__radio-inside"></div>
                                     </div><label>1000 zł</label></li>
-                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="3000" />
+                                <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="3000" />
                                     <div class="dropdown__radio-outside">
                                         <div class="dropdown__radio-inside"></div>
                                     </div><label>3000 zł</label></li>
                             </ul>
-                            <input type="submit " class="dropdown__submit aside-stats__support " value="Wpłać " />
+                            <input name="id" value="212604" type="hidden" />
+                            <input name="lang" value="pl" type="hidden" />
+                            <input name="opis" th:value="${piggyBank.name}" type="hidden" />
+                            <input name="control" th:value="${piggyBank.id}" type="hidden" />
+                            <input name="URL" value="https://swinka.herokuapp.com/all&amp;type=3" type="hidden" />
+                            <input type="submit" class="dropdown__submit aside-stats__support" value="Wpłać" />
                         </form>
                     </div>
                 </div>

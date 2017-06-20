@@ -1,30 +1,33 @@
 function pageLoad(subpage) {
     if (subpage == "piggybank" || subpage == "piggybanks") {
+        var radios = $('.dropdown__radio-outside');
         fillStatusBars();
-        initDropdowns();
         $('.dropdown-btn').on('click', openDropdown)
+        radios.click(checkCustomRadio)
     }
     if (subpage == "piggybank") {
         var shareBtn = document.querySelector('#shareBtn');
-        var radios = $('.dropdown__radio-outside');
         shareBtn.addEventListener('click', facebookShare, false);
-        radios.click(checkCustomRadio)
+    }
+
+    if (subpage == "piggybanks") {
+        $('.piggybanks__dropdown-button').on('click', openThisDropdown)
     }
 }
 
-function initDropdowns() {
-
+function openThisDropdown() {
+    this.parentNode.parentNode.querySelector('.dropdown').classList.toggle('dropdown--active')
 }
 
 function checkCustomRadio() {
     var radios = document.querySelectorAll('.dropdown__radio-outside');
-    var form = document.querySelector('#amountForm')
-    for(var i = 0; i < radios.length; i++){
-      radios[i].classList.remove('dropdown__radio-outside--checked');
-      form.reset();
+    for (var i = 0; i < radios.length; i++) {
+        radios[i].classList.remove('dropdown__radio-outside--checked');
+        this.parentNode.parentNode.parentNode.reset();
     }
     this.classList.add('dropdown__radio-outside--checked');
     this.parentNode.querySelector('.dropdown__checkbox').checked = true;
+    // this.parentNode.querySelector('input[name="kwota"]').value =
 }
 
 function openDropdown() {

@@ -31,7 +31,6 @@
                 <div class="header__underline"></div>
             </div>
             <div class="actions__grid">
-
                 <div class="action-card" th:each="piggyBank:${piggyBanks}">
                     <div class="action-card__image" th:style="'background: url(\'' + ${piggyBank.url_image ?: '/resources/ob.jpg'} +'\')'"></div>
                     <div class="action-card__content-wrapper">
@@ -42,9 +41,53 @@
                             <div class="progress-bar__text"><span th:text="${piggyBank.current}"> zł</span> (<span th:text="${piggyBank.percentRaised}"></span>%)</div>
                         </div>
                         <div class="action-card__needed">Brakuje nam <span th:text="${piggyBank.misingAmount}"></span> zł z <span th:text="${piggyBank.target}"></span></div>
+                        <div class="dropdown dropdown--full-width">
+                            <form action="https://ssl.dotpay.pl" method="post">
+                                <ul class="dropdown__amounts ">
+                                    <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="10" />
+                                        <div class="dropdown__radio-outside">
+                                            <div class="dropdown__radio-inside"></div>
+                                        </div><label>10 zł</label></li>
+                                    <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="20" />
+                                        <div class="dropdown__radio-outside">
+                                            <div class="dropdown__radio-inside"></div>
+                                        </div><label>20 zł</label></li>
+                                    <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="50" />
+                                        <div class="dropdown__radio-outside">
+                                            <div class="dropdown__radio-inside"></div>
+                                        </div><label>50 zł</label></li>
+                                    <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="100" />
+                                        <div class="dropdown__radio-outside">
+                                            <div class="dropdown__radio-inside"></div>
+                                        </div><label>100 zł</label></li>
+                                    <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="250" />
+                                        <div class="dropdown__radio-outside">
+                                            <div class="dropdown__radio-inside"></div>
+                                        </div><label>250 zł</label></li>
+                                    <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="500" />
+                                        <div class="dropdown__radio-outside">
+                                            <div class="dropdown__radio-inside"></div>
+                                        </div><label>500 zł</label></li>
+                                    <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="1000" />
+                                        <div class="dropdown__radio-outside">
+                                            <div class="dropdown__radio-inside"></div>
+                                        </div><label>1000 zł</label></li>
+                                    <li class="dropdown__amount"><input type="radio" name="kwota" class="dropdown__checkbox" value="3000" />
+                                        <div class="dropdown__radio-outside">
+                                            <div class="dropdown__radio-inside"></div>
+                                        </div><label>3000 zł</label></li>
+                                </ul>
+                                <input name="id" value="212604" type="hidden" />
+                                <input name="lang" value="pl" type="hidden" />
+                                <input name="opis" th:value="${piggyBank.name}" type="hidden" />
+                                <input name="control" th:value="${piggyBank.id}" type="hidden" />
+                                <input name="URL" value="https://swinka.herokuapp.com/all&amp;type=3" type="hidden" />
+                                <input type="submit" class="dropdown__submit aside-stats__support" value="Wpłać" />
+                            </form>
+                        </div>
                         <div class="action-card__buttons">
-                            <a href="" th:href="'/piggybank?id=' + ${piggyBank.id}" class="action-card__button action-card__button--green">Więcej</a>
-                            <a href="" th:href="'https://ssl.dotpay.pl/test_payment/?id=727904&amp;kwota=123&amp;opis=aaaa&amp;control='+${piggyBank.id}+'&amp;URL=https://swinka.herokuapp.com/all&amp;type=3'" class="action-card__button action-card__button--green">Wesprzyj</a>
+                            <a th:href="'/piggybank?id=' + ${piggyBank.id}" class="action-card__button action-card__button--green">Więcej</a>
+                            <a th:href="'https://ssl.dotpay.pl/test_payment/?id=727904&amp;kwota=123&amp;opis=aaaa&amp;control='+${piggyBank.id}+'&amp;URL=https://swinka.herokuapp.com/all&amp;type=3'" class="action-card__button action-card__button--green piggybanks__dropdown-button">Wesprzyj</a>
                         </div>
                     </div>
                 </div>
