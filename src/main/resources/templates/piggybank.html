@@ -32,7 +32,7 @@
 
         <div class="piggybank-wrapper">
             <main class="piggybank" data-subpage="piggybank">
-                <div class="piggybank__photo" style="background: url('/resources/ob.jpg')"></div>
+                <div class="piggybank__photo" th:style="'background: url(\'' + ${piggyBank.url_image ?: '/resources/ob.jpg'} +'\')'"></div>
 
                 <div class="piggybank__article-wrapper">
                     <div class="piggybank__title" th:text="${piggyBank.name}"></div>
@@ -47,55 +47,79 @@
                     <div class="piggybank__title">Ile już zebraliśmy?</div>
                     <div class="progress-bar aside-stats__progress-bar" data-current="383000" data-target="1520000">
                         <div class="progress-bar__progress"></div>
-                          <div class="progress-bar__text"><span th:text="${piggyBank.current}"></span> zł (<span th:text="${piggyBank.percentRaised}"></span>)%</div>
+                        <div class="progress-bar__text"><span th:text="${piggyBank.current}"></span> zł (<span th:text="${piggyBank.percentRaised}"></span>)%</div>
                     </div>
                     <div class="aside-stats__needed" th:text="'Brakuje nam '+${piggyBank.misingAmount}+' z '"><span th:text=" ${piggyBank.target} "></span></div>
-                <div class="aside-stats__support dropdown-btn "><span>Wspomóż</span></div>
-                <div class="dropdown ">
-                  <form target=" ">
-                    <ul class="dropdown__amounts ">
-                      <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="10 " /><label>10 zł</label></li>
-                      <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="20 " /><label>20 zł</label></li>
-                      <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="50 " /><label>50 zł</label></li>
-                      <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="100 " /><label>100 zł</label></li>
-                      <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="250 " /><label>250 zł</label></li>
-                      <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="500 " /><label>500 zł</label></li>
-                      <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="1000 " /><label>1000 zł</label></li>
-                      <li class="dropdown__amount "><input type="radio " name="amount " class="dropdown__checkbox " value="3000 " /><label>3000 zł</label></li>
-                    </ul>
-                    <input type="submit " class="dropdown__submit aside-stats__support " value="Wpłać " />
-                  </form>
+                    <div class="aside-stats__support dropdown-btn "><span>Wspomóż</span></div>
+                    <div class="dropdown ">
+                        <form id="amountForm" target="">
+                            <ul class="dropdown__amounts ">
+                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="10" />
+                                    <div class="dropdown__radio-outside">
+                                        <div class="dropdown__radio-inside"></div>
+                                    </div><label>10 zł</label></li>
+                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="20" />
+                                    <div class="dropdown__radio-outside">
+                                        <div class="dropdown__radio-inside"></div>
+                                    </div><label>20 zł</label></li>
+                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="50" />
+                                    <div class="dropdown__radio-outside">
+                                        <div class="dropdown__radio-inside"></div>
+                                    </div><label>50 zł</label></li>
+                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="100" />
+                                    <div class="dropdown__radio-outside">
+                                        <div class="dropdown__radio-inside"></div>
+                                    </div><label>100 zł</label></li>
+                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="250" />
+                                    <div class="dropdown__radio-outside">
+                                        <div class="dropdown__radio-inside"></div>
+                                    </div><label>250 zł</label></li>
+                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="500" />
+                                    <div class="dropdown__radio-outside">
+                                        <div class="dropdown__radio-inside"></div>
+                                    </div><label>500 zł</label></li>
+                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="1000" />
+                                    <div class="dropdown__radio-outside">
+                                        <div class="dropdown__radio-inside"></div>
+                                    </div><label>1000 zł</label></li>
+                                <li class="dropdown__amount"><input type="radio" name="amount" class="dropdown__checkbox" value="3000" />
+                                    <div class="dropdown__radio-outside">
+                                        <div class="dropdown__radio-inside"></div>
+                                    </div><label>3000 zł</label></li>
+                            </ul>
+                            <input type="submit " class="dropdown__submit aside-stats__support " value="Wpłać " />
+                        </form>
+                    </div>
                 </div>
-              </div>
 
-              <div class="piggybank-aside__element piggybank-aside__share ">
-                <div class="piggybank__title ">Podziel się na Facebook'u</div>
+                <div class="piggybank-aside__element piggybank-aside__share ">
+                    <div class="piggybank__title ">Podziel się na Facebook'u</div>
 
-              <div class="aside-share__counter "><span id="sharesCounter">Ładowanie</span> udostępnień</div>
-                  <div class="button aside-share__button " id="shareBtn">
-                    <i class="fa fa-facebook fa-lg "></i>
-                    <div>Udostępnij</div>
-                  </div>
-                  <a href=" " class="aside-share__embed ">Wstaw na stronę &lt;/&gt;</a>
-              </div>
+                    <div class="aside-share__counter "><span id="sharesCounter">Ładowanie</span> udostępnień</div>
+                    <div class="button aside-share__button " id="shareBtn">
+                        <i class="fa fa-facebook fa-lg "></i>
+                        <div>Udostępnij</div>
+                    </div>
+                    <a href=" " class="aside-share__embed ">Wstaw na stronę &lt;/&gt;</a>
+                </div>
 
-              <div class="piggybank-aside__element aside-donors ">
-                <div class="piggybank__title ">Nasi darczyńcy</div>
-                <table class="donors-table ">
-                  <tr class="donors-table__row ">
-                    <td class="donors-table__name ">Anonimowy Darczyńca</td>
-                    <td class="donors-table__amount ">10000zł</td>
-                  </tr>
-                  <tr class="donors-table__row ">
-                    <td class="donors-table__name ">Andrzej Gołota</td>
-                    <td class="donors-table__amount ">5000zł</td>
-                  </tr>
-                  <tr class="donors-table__row ">
-                    <td class="donors-table__name ">Mariusz Klimkiewicz</td>
-                    <td class="donors-table__amount ">500zł</td>
-                  </tr>
-                </table>
-              </div>
+                <div class="piggybank-aside__element aside-donors ">
+                    <div class="piggybank__title ">Nasi darczyńcy</div>
+                    <table class="donors-table ">
+                        <tr class="donors-table__row ">
+                            <td class="donors-table__name ">Anonimowy Darczyńca</td>
+                            <td class="donors-table__amount ">10000zł</td>
+                        </tr>
+                        <tr class="donors-table__row ">
+                            <td class="donors-table__name ">Andrzej Gołota</td>
+                            <td class="donors-table__amount ">5000zł</td>
+                        </tr>
+                        <tr class="donors-table__row ">
+                            <td class="donors-table__name ">Mariusz Klimkiewicz</td>
+                            <td class="donors-table__amount ">500zł</td>
+                        </tr>
+                    </table>
+                </div>
             </aside>
         </div>
 

@@ -1,3 +1,5 @@
+@import "../scss/variables";
+
 .dropdown {
     width: 80%;
     margin: 0 auto;
@@ -9,10 +11,10 @@
     overflow: hidden;
     height: 0;
     will-change: height;
-    transition: height .5s ease;
+    transition: height 0.5s ease;
 
     &--active {
-        height: 33vh;
+        height: 42vh;
     }
 
     &__amounts {
@@ -22,14 +24,53 @@
     }
 
     &__amount {
-        display: block;
+        display: flex;
+        align-items: center;
         width: 50%;
         font-size: 1.3em;
+        margin-bottom: 2vh;
     }
 
     &__submit {
-        display: block;
-        margin: 3vh auto;
+        width: 50% !important;
+        padding: 3% !important;
+        text-align: center;
+        height: auto !important;
+        margin-top: 1vh !important;
         border: none;
+        font-size: 1.3em !important;
+    }
+
+    &__radio-outside {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        width: 2vw;
+        height: 2vw;
+        border-radius: 50%;
+        border: solid 2px map-get($colors, borders);
+        margin-right: .5vw;
+
+        &--checked {
+            .dropdown__radio-inside {
+              opacity: 1;
+            }
+        }
+    }
+
+    &__radio-inside {
+        border-radius: 50%;
+        background-color: map-get($colors, green);
+        opacity: 0;
+        transition: opacity .2s ease;
+        width: 1.5vw;
+        height: 1.5vw;
+    }
+
+    input[type="radio"] {
+        visibility: hidden;
+        width: 0;
+        height: 0;
     }
 }
