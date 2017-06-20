@@ -6,8 +6,9 @@ function pageLoad(subpage) {
     }
     if (subpage == "piggybank") {
         var shareBtn = document.querySelector('#shareBtn');
+        var radios = $('.dropdown__radio-outside');
         shareBtn.addEventListener('click', facebookShare, false);
-        countShares();
+        radios.click(checkCustomRadio)
     }
 }
 
@@ -15,9 +16,20 @@ function initDropdowns() {
 
 }
 
-function openDropdown(){
-  var dropdown = document.querySelector(".dropdown");
-  dropdown.classList.toggle("dropdown--active");
+function checkCustomRadio() {
+    var radios = document.querySelectorAll('.dropdown__radio-outside');
+    var form = document.querySelector('#amountForm')
+    for(var i = 0; i < radios.length; i++){
+      radios[i].classList.remove('dropdown__radio-outside--checked');
+      form.reset();
+    }
+    this.classList.add('dropdown__radio-outside--checked');
+    this.parentNode.querySelector('.dropdown__checkbox').checked = true;
+}
+
+function openDropdown() {
+    var dropdown = document.querySelector(".dropdown");
+    dropdown.classList.toggle("dropdown--active");
 }
 
 function fillStatusBars() {

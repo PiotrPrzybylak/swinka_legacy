@@ -1,29 +1,3 @@
-.dropdown {
-  width: 80%;
-  margin: 0 auto;
-  background-color: #FFF;
-  font-family: 'Roboto Condensed', sans-serif;
-  justify-content: space-around;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  overflow: hidden;
-  height: 0;
-  will-change: height;
-  transition: height .5s ease; }
-  .dropdown--active {
-    height: 33vh; }
-  .dropdown__amounts {
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap; }
-  .dropdown__amount {
-    display: block;
-    width: 50%;
-    font-size: 1.3em; }
-  .dropdown__submit {
-    display: block;
-    margin: 3vh auto;
-    border: none; }
-
 .action-card {
   width: 28.9vw;
   font-family: 'Roboto Condensed', sans-serif;
@@ -109,6 +83,61 @@
     position: absolute;
     width: 100%;
     text-align: center; }
+
+.dropdown {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #FFF;
+  font-family: 'Roboto Condensed', sans-serif;
+  justify-content: space-around;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+  height: 0;
+  will-change: height;
+  transition: height 0.5s ease; }
+  .dropdown--active {
+    height: 42vh; }
+  .dropdown__amounts {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap; }
+  .dropdown__amount {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    font-size: 1.3em;
+    margin-bottom: 2vh; }
+  .dropdown__submit {
+    width: 50% !important;
+    padding: 3% !important;
+    text-align: center;
+    height: auto !important;
+    margin-top: 1vh !important;
+    border: none;
+    font-size: 1.3em !important; }
+  .dropdown__radio-outside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    border: solid 2px #DDD;
+    margin-right: .5vw; }
+    .dropdown__radio-outside--checked .dropdown__radio-inside {
+      opacity: 1; }
+  .dropdown__radio-inside {
+    border-radius: 50%;
+    background-color: #89C540;
+    opacity: 0;
+    transition: opacity .2s ease;
+    width: 1.5vw;
+    height: 1.5vw; }
+  .dropdown input[type="radio"] {
+    visibility: hidden;
+    width: 0;
+    height: 0; }
 
 .header {
   display: flex;
